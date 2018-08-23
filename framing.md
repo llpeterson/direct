@@ -24,7 +24,8 @@ There are several ways to address the framing problem. This section uses
 several different protocols to illustrate the various points in the
 design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
-addressed in multiple-access networks like Ethernet and token rings.
+addressed in multiple-access networks like Ethernet, Wi-Fi, and the
+celluar network.
 
 ## Byte-Oriented Protocols (BISYNC, PPP, DDCMP)
 
@@ -311,7 +312,7 @@ really be viewed as three 51.84-Mbps links that happen to share a fiber.
 	<figcaption>SONET frames out of phase.</figcaption>
 </figure>
 
-Finally, the preceding description of SONET is overly simplistic in that
+The preceding description of SONET is overly simplistic in that
 it assumes that the payload for each frame is completely contained
 within the frame. (Why wouldn't it be?) In fact, we should view the
 STS-1 frame just described as simply a placeholder for the frame, where
@@ -323,3 +324,7 @@ fields in the frame overhead points to the beginning of the payload. The
 value of this capability is that it simplifies the task of synchronizing
 the clocks used throughout the carriers' networks, which is something
 that carriers spend a lot of their time worrying about.
+
+Finally, while we have been explaining how SONET works in terms of
+STS-1 and STS-3, backbone links into today's ISP networks typically
+run at 40-Gbps, or STS-768.

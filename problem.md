@@ -10,7 +10,7 @@ nodes. One of the fundamental problems we face is how to connect two
 nodes together. We also introduced the "cloud" abstraction to represent
 a network without revealing all of its internal complexities. So we also
 need to address the similar problem of connecting a host to a cloud.
-This, in effect, is the problem every Internet Service Provider faces
+This, in effect, is the problem every Internet Service Provider (ISP) faces
 when it wants to connect a new customer to the network: how to connect
 one more nodes to the ISP's cloud?
 
@@ -45,12 +45,15 @@ Although these five issues—encoding, framing, error detection,
 reliable delivery, and access mediation—can be discussed in the
 abstract, they are very real problems that are addressed in different
 ways by different networking technologies. This chapter considers these
-issues in the context of three specific network technologies:
-point-to-point links, Carrier Sense Multiple Access (CSMA) networks (of
-which Ethernet is the most famous example), and wireless networks (for
-which 802.11 is the most widespread standard). The goal of this
-chapter is simultaneously to survey the available network technology and
-to explore these five fundamental issues. We will examine what it takes
-to make a wide variety of different physical media and link technologies
-useful as building blocks for the construction of robust, scalable
-networks.
+issues in the context of specific network technologies: point-to-point
+fiber links (for which SONET is the prevelant example); Carrier Sense
+Multiple Access (CSMA) networks (of which Ethernet is the most famous
+example); wireless (WiFi) networks (for which 802.11 is the most
+widespread standard); fiber-to-the home (for which PON is the dominant
+standard); and mobile wireless (where 4G is rapidly morphing into 5G).
+
+The goal of this chapter is simultaneously to survey the available
+network technology and to explore these five fundamental issues. We
+will examine what it takes to make a wide variety of different
+physical media and link technologies useful as building blocks for the
+construction of robust, scalable networks.

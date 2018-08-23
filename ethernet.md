@@ -28,15 +28,15 @@ each node can transmit.
 
 Interestingly, modern Ethernet links are now largely point to point;
 that is, they connect one host to an Ethernet *switch*, or they
-interconnect switches. Hence, "multiple access" techniques are not used
-much in today's Ethernets. At the same time, wireless networks have
-become enormously popular, so the multiple access technologies that
-started in Aloha are today again mostly used in wireless networks such
-as 802.11 (Wi-Fi) networks. These networks will be discussed in a
-later section.
+interconnect switches. As a consequence, the "multiple access"
+algorithm is not used much in today's wired Ethernets, but it is
+now used in wireless networks, such as 802.11 networks (also known
+as Wi-Fi). Due to the enormous influence of classic Ethernet, we chose
+to describe the algorithm here, and then explain how it has been
+adapted to Wi-Fi in the next section.
 
-We will discuss Ethernet switches in the next chapter. For now, we'll
-focus on how a single Ethernet link works. And even though multi-access
+We will also discuss Ethernet switches elsewhere. For now, we'll focus
+on how a single Ethernet link works. And even though multi-access
 Ethernet is becoming a bit of a historical curiosity, the principles of
 multi-access networks continue to be important enough to warrant some
 further discussion, which we provide below.
@@ -68,8 +68,8 @@ plugged into the host. This configuration is shown in [Figure 1](#tap).
 
 Multiple Ethernet segments can be joined together by *repeaters*. A
 repeater is a device that forwards digital signals, much like an
-amplifier forwards analog signals. Repeaters understand only bits, not
-frames; however, no more than four repeaters could be positioned between
+amplifier forwards analog signals; repeaters do not understand bits
+or frames. No more than four repeaters could be positioned between
 any pair of hosts, meaning that a classical Ethernet had a total reach
 of only 2500 m. For example, using just two repeaters between any pair
 of hosts supports a configuration similar to the one illustrated
@@ -83,8 +83,8 @@ the spine of a building with a segment on each floor.
 </figure>
 
 It's also possible to create a multiway repeater, sometimes called a
-*hub*, as illustrated in [Figure 3](#hub). A hub just repeats whatever
-it hears on one port out all its other ports.
+*hub*, as illustrated in [Figure 3](#hub). Like a repeater, a hub just
+repeats whatever signals it hears on one port out all its other ports.
 
 Any signal placed on the Ethernet by a host is broadcast over the entire
 network; that is, the signal is propagated in both directions, and
@@ -353,7 +353,6 @@ Cable is cheap, and the only other cost is the network adaptor on each
 host. Ethernet became deeply entrenched for these reasons, and any
 switch-based approach that aspired to displace it required additional
 investment in infrastructure (the switches), on top of the cost of each
-adaptor. As we will see in the next chapter, a switch-based technology
-did eventually succeed in replacing multi-access Ethernet: switched
-Ethernet. Retaining the simplicity of administration (and familiarity)
-was a key reason for this success.
+adaptor. A switch-based technology did eventually succeed in replacing
+multi-access Ethernet, but retaining the simplicity of administration
+was a key reason for switched Ethernet's success.
