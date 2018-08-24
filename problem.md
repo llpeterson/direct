@@ -48,7 +48,7 @@ ways by different networking technologies. This chapter considers these
 issues in the context of specific network technologies: point-to-point
 fiber links (for which SONET is the prevelant example); Carrier Sense
 Multiple Access (CSMA) networks (of which Ethernet is the most famous
-example); wireless (WiFi) networks (for which 802.11 is the most
+example); wireless networks (for which 802.11 is the most
 widespread standard); fiber-to-the home (for which PON is the dominant
 standard); and mobile wireless (where 4G is rapidly morphing into 5G).
 

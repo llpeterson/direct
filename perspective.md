@@ -161,8 +161,8 @@ connectivity while moving from place to place.
 
 Finally, in addition to last-mile, backbone, and mobile links, there
 are the links that you find inside a building or a campus—generally
-referred to as *local area networks* (LANs). Ethernet, and it's
-wireless cousin WiFi, are the dominant technologies in this space.
+referred to as *local area networks* (LANs). Ethernet, and its
+wireless cousin Wi-Fi, are the dominant technologies in this space.
 
 This survey of link types is by no means exhaustive, but it should have
 given you a taste of the diversity of link types that exist and some of

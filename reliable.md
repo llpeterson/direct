@@ -19,17 +19,18 @@ factors. We describe the basics of reliable delivery here, since the
 principles are common across layers, but you should be aware that we're
 not just talking about a link-layer function.
 
-This is usually accomplished using a combination of two fundamental
-mechanisms—*acknowledgments* and *timeouts*. An acknowledgment (ACK
-for short) is a small control frame that a protocol sends back to its
-peer saying that it has received an earlier frame. By control frame we
-mean a header without any data, although a protocol can *piggyback* an
-ACK on a data frame it just happens to be sending in the opposite
-direction. The receipt of an acknowledgment indicates to the sender of
-the original frame that its frame was successfully delivered. If the
-sender does not receive an acknowledgment after a reasonable amount of
-time, then it *retransmits* the original frame. This action of waiting a
-reasonable amount of time is called a *timeout*.
+Reliable delivery is usually accomplished using a combination of two
+fundamental mechanisms—*acknowledgments* and *timeouts*. An
+acknowledgment (ACK for short) is a small control frame that a
+protocol sends back to its peer saying that it has received an earlier
+frame. By control frame we mean a header without any data, although a
+protocol can *piggyback* an ACK on a data frame it just happens to be
+sending in the opposite direction. The receipt of an acknowledgment
+indicates to the sender of the original frame that its frame was
+successfully delivered. If the sender does not receive an
+acknowledgment after a reasonable amount of time, then it
+*retransmits* the original frame. This action of waiting a reasonable
+amount of time is called a *timeout*.
 
 The general strategy of using acknowledgments and timeouts to implement
 reliable delivery is sometimes called *automatic repeat request*
@@ -110,7 +111,7 @@ Since the sender can send only one frame per RTT, and assuming a frame
 size of 1 KB, this implies a maximum sending rate of
 
 {% center %}
-Bits-Per-Frame  / Time-Per-Frame = 1024 $$\times$$ 8 / 0.045 = 182 kbps
+Bits-Per-Frame  / Time-Per-Frame = 1024 x 8 / 0.045 = 182 kbps
 {% endcenter %}
 
 or about one-eighth of the link's capacity. To use the link fully, then,
@@ -214,8 +215,8 @@ receiver acknowledges frame 8, bumps `LFR` to 8, and sets
 occurred at the sender, causing it to retransmit frame 6.
 
 > It's unlikely that a packet could be delayed on a 
-> point-to-point link, but later on we will see this same algorithm 
-> used on more complex networks where such delays are possible. 
+> point-to-point link, this same algorithm is used
+> on multi-hop connections where such delays are possible. 
 
 We observe that when a timeout occurs, the amount of data in transit
 decreases, since the sender is unable to advance its window until
@@ -267,7 +268,7 @@ stop-and-wait allowed one outstanding frame at a time and had two
 distinct sequence numbers.
 
 Suppose we have one more number in our space of sequence numbers than we
-have potentially outstanding frames; that is, `SWS <= MaxSeqNum - 1`),
+have potentially outstanding frames; that is, `SWS <= MaxSeqNum - 1`,
 where `MaxSeqNum` is the number of
 available sequence numbers. Is this sufficient? The answer depends on
 `RWS`. If `RWS =  1`, then `MaxSeqNum >= SWS + 1` is sufficient.
@@ -276,7 +277,7 @@ than the sending window size is not good enough. To see this, consider the
 situation in which we have the eight sequence numbers 0 through 7, and
 `SWS = RWS = 7`. Suppose the sender transmits
 frames 0..6, they are successfully received, but the ACKs are
-lost. The receiver is now expecting frames $7, 0..5, but the sender
+lost. The receiver is now expecting frames 7, 0..5, but the sender
 times out and sends frames 0..6. Unfortunately, the receiver is
 expecting the second incarnation of frames 0..5 but gets the first
 incarnation of these frames. This is exactly the situation we wanted to
@@ -574,12 +575,9 @@ window algorithm described in this section does preserve frame order,
 although we could imagine a variation in which the receiver passes
 frames to the next protocol without waiting for all earlier frames to be
 delivered. A question we should ask ourselves is whether we really need
-the sliding window protocol to keep the frames in order, or whether,
-instead, this is unnecessary functionality at the link level.
-Unfortunately, we have not yet seen enough of the network architecture
-to answer this question; we first need to understand how a sequence of
-point-to-point links is connected by switches to form an end-to-end
-path.
+the sliding window protocol to keep the frames in order at the link
+level, or whether, instead, this functionality should be implemented
+by a protocol higher in the stack.
 
 The third role that the sliding window algorithm sometimes plays is to
 support *flow control*—a feedback mechanism by which the receiver is

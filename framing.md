@@ -24,8 +24,7 @@ There are several ways to address the framing problem. This section uses
 several different protocols to illustrate the various points in the
 design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
-addressed in multiple-access networks like Ethernet, Wi-Fi, and the
-celluar network.
+addressed in multiple-access networks like Ethernet and Wi-Fi.
 
 ## Byte-Oriented Protocols (BISYNC, PPP, DDCMP)
 
@@ -138,7 +137,7 @@ framing error will cause back-to-back frames to be incorrectly received.
 
 ## Bit-Oriented Protocols (HDLC)
 
-Unlike these byte-oriented protocols, a bit-oriented protocol is not
+Unlike byte-oriented protocols, a bit-oriented protocol is not
 concerned with byte boundaries—it simply views the frame as a
 collection of bits. These bits might come from some character set, such
 as ASCII; they might be pixel values in an image; or they could be
@@ -214,8 +213,8 @@ standard. Also, SONET addresses both the framing problem and the
 encoding problem. It also addresses a problem that is very important for
 phone companies—the multiplexing of several low-speed links onto one
 high-speed link. (In fact, much of SONET's design reflects the fact that
-phone companies have to be concerned with multiplexing large numbers of
-the 64-kbps channels that traditionally are used for telephone calls.)
+phone companies have to be concerned with multiplexing large numbers
+of the 64-kbps channels that traditionally are used for telephone calls.)
 We begin with SONET's approach to framing and discuss the other issues
 following.
 
@@ -269,15 +268,24 @@ signal with enough transitions to enable clock recovery.
 
 SONET supports the multiplexing of multiple low-speed links in the
 following way. A given SONET link runs at one of a finite set of
-possible rates, ranging from 51.84 Mbps (STS-1) to 2488.32 Mbps
-(STS-48), and beyond. Note that all of these rates are integer multiples
-of STS-1. The significance for framing is that a single SONET frame can
-contain subframes for multiple lower-rate channels. A second related
-feature is that each frame is 125 $$\mu$$s long. This means that at STS-1
+possible rates, ranging from 51.84 Mbps (STS-1) to 39,813,120 Mbps
+(STS-786). Note that all of these rates are integer multiples of STS-1.
+The significance for framing is that a single SONET frame can contain
+subframes for multiple lower-rate channels. A second related feature
+is that each frame is 125 $$\mu$$s long. This means that at STS-1
 rates, a SONET frame is 810 bytes long, while at STS-3 rates, each SONET
 frame is 2430 bytes long. Notice the synergy between these two features:
-3 $$\times$$ 810 = 2430, meaning that three STS-1 frames fit exactly in a
-single STS-3 frame.
+3 $$\times$$ 810 = 2430, meaning that three STS-1 frames fit exactly
+in a single STS-3 frame.
+
+> STS stands for *Synchronous Transport Signal*, which is how SONET 
+> talks about frames. There is a parallel term—*Optical Carrier*
+> (OC)—that is used to talk about the underlying optical signal that
+> carries SONET frames. We say these two terms are parallel because
+> STS-3 and OC-3, to use a concrete example, both imply a transmission
+> rate of 155.52 Mbps. Since we're focused on framing here, we will
+> stick with STS, but it is more likely that you will hear someone
+> refer to an optical link by its "OC" name.
 
 Intuitively, the STS-N frame can be thought of as consisting of N
 STS-1 frames, where the bytes from these frames are interleaved; that
@@ -312,7 +320,7 @@ really be viewed as three 51.84-Mbps links that happen to share a fiber.
 	<figcaption>SONET frames out of phase.</figcaption>
 </figure>
 
-The preceding description of SONET is overly simplistic in that
+Finally, the preceding description of SONET is overly simplistic in that
 it assumes that the payload for each frame is completely contained
 within the frame. (Why wouldn't it be?) In fact, we should view the
 STS-1 frame just described as simply a placeholder for the frame, where
@@ -324,7 +332,3 @@ fields in the frame overhead points to the beginning of the payload. The
 value of this capability is that it simplifies the task of synchronizing
 the clocks used throughout the carriers' networks, which is something
 that carriers spend a lot of their time worrying about.
-
-Finally, while we have been explaining how SONET works in terms of
-STS-1 and STS-3, backbone links into today's ISP networks typically
-run at 40-Gbps, or STS-768.

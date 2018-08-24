@@ -31,21 +31,17 @@ that is, they connect one host to an Ethernet *switch*, or they
 interconnect switches. As a consequence, the "multiple access"
 algorithm is not used much in today's wired Ethernets, but it is
 now used in wireless networks, such as 802.11 networks (also known
-as Wi-Fi). Due to the enormous influence of classic Ethernet, we chose
-to describe the algorithm here, and then explain how it has been
-adapted to Wi-Fi in the next section.
-
-We will also discuss Ethernet switches elsewhere. For now, we'll focus
-on how a single Ethernet link works. And even though multi-access
-Ethernet is becoming a bit of a historical curiosity, the principles of
-multi-access networks continue to be important enough to warrant some
-further discussion, which we provide below.
+as Wi-Fi). Due to the enormous influence of Ethernet, we chose
+to describe its classic algorithm here, and then explain how it has been
+adapted to Wi-Fi in the next section. We will also discuss Ethernet
+switches elsewhere. For now, we'll focus on how a single Ethernet link
+works.
 
 Digital Equipment Corporation and Intel Corporation joined Xerox to
 define a 10-Mbps Ethernet standard in 1978. This standard then formed
 the basis for IEEE standard 802.3, which additionally defines a much
 wider collection of physical media over which an Ethernet can operate,
-including 100-Mbps, 1-Gbps, and 10-Gbps versions.
+including 100-Mbps, 1-Gbps, 10-Gbps, 40-Gbps, and 100-Gbps versions.
 
 ## Physical Properties
 
@@ -85,6 +81,10 @@ the spine of a building with a segment on each floor.
 It's also possible to create a multiway repeater, sometimes called a
 *hub*, as illustrated in [Figure 3](#hub). Like a repeater, a hub just
 repeats whatever signals it hears on one port out all its other ports.
+The important thing about hubs is that they can be used to connect
+node to a shared Ethernet without using a tap, meaning the link can
+be implemented in fiber or twisted pair copper, and not a coax cable.
+This is necessary to achieve the higher Ethernet performance levels.
 
 Any signal placed on the Ethernet by a host is broadcast over the entire
 network; that is, the signal is propagated in both directions, and
@@ -314,7 +314,7 @@ or 51.2 $$\mu$$s, selected at random. If this effort fails, it then waits
 0, 51.2, 102.4, or 153.6 $$\mu$$s (selected randomly) before trying
 again; this is k $$\times$$ 51.2 for k=0..3. After the third
 collision, it waits k$$\times$$51.2 for k=0.2$$^3$$-1, again selected
-at random. In general, the algorithm randomly selects a $$k$$ between 0
+at random. In general, the algorithm randomly selects a k between 0
 and 2$$^n$$-1 and waits k$$\times$$51.2$$\mu$$s, where $$n$$ is
 the number of collisions experienced so far. The adaptor gives up
 after a given number of tries and reports a transmit error to the
@@ -338,21 +338,21 @@ fewer than the maximum of 1024. Similarly, most Ethernets were far
 shorter than 2500 m, with a round-trip delay of closer to 5 $$\mu$$s than
 51.2 $$\mu$$s. Another factor that made Ethernets practical is that, even
 though Ethernet adaptors do not implement link-level flow control, the
-hosts typically provide an end-to-end flow-control mechanism, as we will
-see later. As a result, it is rare to find situations in which any one
-host is continuously pumping frames onto the network.
+hosts typically provide an end-to-end flow-control mechanism.
+As a result, it is rare to find situations in which any one host is
+continuously pumping frames onto the network.
 
 Finally, it is worth saying a few words about why Ethernets have been so
 successful, so that we can understand the properties we should emulate
-with any LAN technology that tries to replace it. First, an Ethernet is
-extremely easy to administer and maintain: There were no switches in the
-original Ethernets, no routing or configuration tables to be kept
-up-to-date, and it is easy to add a new host to the network. It is hard
-to imagine a simpler network to administer. Second, it is inexpensive:
-Cable is cheap, and the only other cost is the network adaptor on each
-host. Ethernet became deeply entrenched for these reasons, and any
-switch-based approach that aspired to displace it required additional
-investment in infrastructure (the switches), on top of the cost of each
-adaptor. A switch-based technology did eventually succeed in replacing
+with any technology that tries to replace it. First, an Ethernet is
+extremely easy to administer and maintain: There is no routing or
+configuration tables to be kept up-to-date, and it is easy to add a
+new host to the network. It is hard to imagine a simpler network to
+administer. Second, it is inexpensive: Cable is cheap, and the only
+other cost is the network adaptor on each host. Ethernet became deeply
+entrenched for these reasons, and any switch-based approach that
+aspired to displace it required additional investment in
+infrastructure (the switches), on top of the cost of each adaptor. A
+switch-based technology did eventually succeed in replacing
 multi-access Ethernet, but retaining the simplicity of administration
 was a key reason for switched Ethernet's success.

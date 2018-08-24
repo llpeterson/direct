@@ -27,31 +27,33 @@ to categorize the different technologies is by the data rates they
 provide and how far apart communicating nodes can be. Other important
 differences include which part of the electromagnetic spectrum they use
 (including whether it requires a license) and how much power they
-consume. In this section, we discuss three prominent wireless
+consume. In this section, we discuss two prominent wireless
 technologies: Wi-Fi (more formally known as 802.11),
-Bluetooth, and the third-generation or "3G" family of
-cellular wireless standards. [Table 1](#wirelessTechnologiesTable)
+and Bluetooth. The next secton discusses celluar networks in the
+context of ISP access services. [Table 1](#wirelessTechnologiesTable)
 gives an overview of these technologies and how they compare to
 each other.
 
 <a id="wirelessTechnologiesTable"></a>
 
-|        | Bluetooth (802.15.1)  |  Wi-Fi (802.11)  |  3G Cellular   | 
+|        | Bluetooth (802.15.1)  |  Wi-Fi (802.11)  |  4G Cellular   | 
 |----| -----------------|-------------|-----------|
 | Typical link length | 10 m   | 100 m               |  Tens of kilometers |
-| Typical data rate    | 2 Mbps (shared) | 54 Mbps (shared) | Hundreds of kbps  (per connection) |
+| Typical data rate    | 2 Mbps (shared) | 54 Mbps (shared) | 1-5 Mbps  (per connection) |
  | Typical use | Link a peripheral to a computer | Link a computer to a  wired base | Link mobile phone to a wired tower |
-| Wired technology analogy  | USB  | Ethernet   | DSL |
+| Wired technology analogy  | USB  | Ethernet   | PON |
 
 {% center %} *Table 1. Overview of Leading Wireless Technologies*  {% endcenter %}
 
 You may recall that bandwidth sometimes means the
 width of a frequency band in hertz and sometimes the data rate of a
 link. Because both these concepts come up in discussions of wireless
-networks, we`re going to use *bandwidth* here in its stricter
+networks, we're going to use *bandwidth* here in its stricter
 sense—width of a frequency band—and use the term *data rate* to
 describe the number of bits per second that can be sent over the link,
 as in [Table 1](#wirelessTechnologiesTable).
+
+## Basic Issues 
 
 Because wireless links all share the same medium, the challenge is to
 share that medium efficiently, without unduly interfering with each
@@ -182,14 +184,13 @@ with incremental costs. On the other hand, a mesh network requires
 non-base nodes to have a certain level of sophistication in their
 hardware and software, potentially increasing per-unit costs and power
 consumption, a critical consideration for battery-powered devices.
-Wireless mesh networks are of considerable research interest (see the
-further reading section for some references), but they are still in
-their relative infancy compared to networks with base stations. Wireless
-sensor networks, another hot emerging technology, often form wireless
-meshes.
+Wireless mesh networks are of considerable research interest, but they
+are still in their relative infancy compared to networks with base
+stations. Wireless sensor networks, another hot emerging technology,
+often form wireless meshes.
 
 Now that we have covered some of the common wireless issues, let's take
-a look at the details of a few common wireless technologies.
+a look at the details of two common wireless technologies.
 
 ## 802.11/Wi-Fi
 
@@ -252,15 +253,15 @@ are redundant).
 
 The systems try to pick an optimal bit rate based on the noise
 environment in which they find themselves; the algorithms for bit rate
-selection can be quite complex (see the Further Reading section for an
-example). Interestingly, the 802.11 standards do not specify a
-particular approach but leave the algorithms to the various vendors. The
-basic approach to picking a bit rate is to estimate the bit error rate
-either by directly measuring the signal-to-noise ratio (SNR) at the
-physical layer or by estimating the SNR by measuring how often packets
-are successfully transmitted and acknowledged. In some approaches, a
-sender will occasionally probe a higher bit rate by sending one or more
-packets at that rate to see if it succeeds.
+selection can be quite complex. Interestingly, the 802.11 standards do
+not specify a particular approach but leave the algorithms to the
+various vendors. The basic approach to picking a bit rate is to
+estimate the bit error rate either by directly measuring the
+signal-to-noise ratio (SNR) at the physical layer or by estimating the
+SNR by measuring how often packets are successfully transmitted and
+acknowledged. In some approaches, a sender will occasionally probe a
+higher bit rate by sending one or more packets at that rate to see if
+it succeeds.
 
 ### Collision Avoidance
 
@@ -525,16 +526,15 @@ hardware and software can be simpler and cheaper.
 </figure>
 
 Since Bluetooth operates in an license-exempt band, it is required to
-use a spread spectrum technique (as discussed at the start of this
-section) to deal with possible interference in the band. It uses
-frequency-hopping with 79 *channels* (frequencies), using each for
-625 $$\mu$$s at a time. This provides a natural time slot for Bluetooth
-to use for synchronous time division multiplexing. A frame takes up 1,
-3, or 5 consecutive time slots. Only the master can start to transmit in
-odd-numbered slots. A slave can start to transmit in an even-numbered
-slot—but only in response to a request from the master during the
-previous slot, thereby preventing any contention between the slave
-devices.
+use a spread spectrum technique to deal with possible interference in
+the band. It uses frequency-hopping with 79 *channels* (frequencies),
+using each for 625 $$\mu$$s at a time. This provides a natural time
+slot for Bluetooth to use for synchronous time division
+multiplexing. A frame takes up 1, 3, or 5 consecutive time slots. Only
+the master can start to transmit in odd-numbered slots. A slave can
+start to transmit in an even-numbered slot—but only in response to a
+request from the master during the previous slot, thereby preventing
+any contention between the slave devices.
 
 A slave device can be *parked*; that is, it is set to an inactive,
 low-power state. A parked device cannot communicate on the piconet; it
@@ -552,25 +552,3 @@ are becoming an increasingly important class of networked device, as
 technology advances to the point where very cheap small devices can be
 deployed in large quantities to monitor things like temperature,
 humidity, and energy consumption in a building.
-
-## Cell Phone Technologies
-
-## Security of Wireless Links
-
-One of the fairly obvious problems of wireless links compared to wires
-or fibers is that you can't be too sure where your data has gone. You
-can probably figure out if it was received by the intended receiver, but
-there is no telling how many other receivers might have also picked up
-your transmission. So, if you are concerned about the privacy of your
-data, wireless networks present a challenge.
-
-Even if you are not concerned about data privacy—or perhaps have taken
-care of it in some other way—you may be concerned about an
-unauthorized user injecting data into your network. If nothing else,
-such a user might be able to consume resources that you would prefer
-to consume yourself, such as the finite bandwidth between your house
-and your ISP.
-
-For these reasons, wireless networks typically come with some sort of
-mechanism to control access to both the link itself and the transmitted
-data. These mechanisms are often categorized as *wireless security.*

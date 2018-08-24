@@ -28,10 +28,9 @@ on *error-correcting codes*, discussed below.
 
 One of the most common techniques for detecting transmission errors is a
 technique known as the *cyclic redundancy check* (CRC). It is used in
-nearly all the link-level protocols discussed in the previous section
-(e.g., HDLC, DDCMP), as well as in the CSMA and wireless protocols
-described later in this chapter. outlines the basic CRC algorithm.
-Before discussing that approach, we consider two simpler schemes:
+nearly all the link-level protocols discussed in this chapter.
+This section outlines the basic CRC algorithm, but before discussing
+that approach, we consider two simpler schemes:
 *two-dimensional parity* and *checksums*. The former is used by the
 BISYNC protocol when it is transmitting ASCII characters (CRC is used as
 the error-detecting code when BISYNC is used to transmit EBCDIC, an
@@ -187,9 +186,9 @@ increments a word and one of which decrements another word by the same
 amount, will go undetected. The reason for using an algorithm like this
 in spite of its relatively weak protection against errors (compared to a
 CRC, for example) is simple: This algorithm is much easier to implement
-in software. Experience in the ARPANET suggested that a checksum of this
-form was adequate. One reason it is adequate is that this checksum is
-the last line of defense in an end-to-end protocol; the majority of
+in software. Experience has suggested that a checksum of this
+form was adequate, but one reason it is adequate is that this checksum
+is the last line of defense in an end-to-end protocol. The majority of
 errors are picked up by stronger error detection algorithms, such as
 CRCs, at the link level.
 

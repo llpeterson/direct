@@ -155,6 +155,6 @@ purposes. Of these, code `11111` is used when the line is idle, code
 `00000` corresponds to when the line is dead, and `00100` is interpreted
 to mean halt. Of the remaining 13 codes, 7 of them are not valid
 because they violate the "one leading 0, two trailing 0s," rule, and
-the other 6 represent various control symbols. As we will see later in
-this chapter, some framing protocols make use of these control
+the other 6 represent various control symbols. Some of the framing
+protocols described later in this chapter make use of these control
 symbols.
