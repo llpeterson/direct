@@ -124,24 +124,29 @@ in [Table 1](#home). They typically are chosen because they are
 cost-effective ways of reaching millions of consumers. DSL
 (Digital Subscriber Line), for example, is an older technology that was
 deployed over the existing twisted pair copper wires that already
-existed for plain old telephone services; PON (Passive Optical
-Network) is a newer technology that is commonly used to connect homes
-and businesses over recently deployed optical fiber; and WiMAX is a
-fixed (as opposed to mobile) wireless technology that is sometimes
-used to connect sites that are too expensive to reach by stringing
+existed for plain old telephone services; G.Fast is a copper-based
+technology typically used within multi-dwelling apartment buildings,
+and PON (Passive Optical Network) is a newer technology that is
+commonly used to connect homes and businesses over recently deployed
 fiber.
 
 <a id="home"></a>
 
 | Service  | Bandwidth |
-|-------|----------------|
+|:-------:|:----------------:|
 | DSL (copper)       | up to 100 Mbps |
 | G.Fast (copper) | up to 1 Gbps |
-| WiMAX (air) | up to 1 Gbps |
 | PON (optical) | up to 10 Gbps |
 
 {% center %} *Table 1. Common services available for the last-mile
 connection to your home.* {% endcenter %}
+
+And of course there is also the *mobile* or *cellular* network (also 
+referred to as 4G, but which is rapidly evolving into 5G) that 
+connects our mobile devices to the Internet. This technology can also 
+serve as the sole Internet connection into our homes or offices, but 
+comes with the added benefit of allowing us to maintain Internet 
+connectivity while moving from place to place. 
 
 These example technologies are common options for the last-mile
 connection to your home or business, but they are not sufficient for
@@ -151,13 +156,6 @@ backbone links are almost exclusively fiber today, and they typically
 use a technology called SONET (Synchronous Optical Network), which was
 originally developed to meet the demanding management requirements of
 telephone carriers.
-
-And of course there is also the *mobile* or *cellular* network (also
-referred to as 4G, but which is rapidly being marketed as 5G) that
-connects our mobile devices to the Internet. This technology can also
-serve as the sole Internet connection into our homes or offices, but
-comes with the added benefit of allowing us to maintain Internet
-connectivity while moving from place to place.
 
 Finally, in addition to last-mile, backbone, and mobile links, there
 are the links that you find inside a building or a campus—generally

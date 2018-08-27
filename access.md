@@ -13,9 +13,9 @@ see, their approach to mediating access is quite different.
 To set a little more context, ISPs (often a Telco or Cable company)
 typically operate a national backbone, and connected to the periphery
 of that backbone are hundreds or thousands of edge sites, each of
-which serves the local city or neighborhood. These edge sites are
-commonly called *Central Offices* in the Telco world and *Head Ends*
-in the cable world, but despite their names implying "centralized" and
+which serves a city or neighborhood. These edge sites are commonly
+called *Central Offices* in the Telco world and *Head Ends* in the
+cable world, but despite their names implying "centralized" and
 "root of the hierarchy" these sites are the ISP-side of the last mile,
 where the ISP directly connects to its customers. PON and Cellular
 access networks are anchored in these facilities.
@@ -34,20 +34,20 @@ to 1024 homes. PON gets its name from the fact that the
 splitters are passive: they forward optical signls downstream and
 upstream without actively storing-and-forwarding frames. In this way,
 they are the optical variant of repeaters used in the classic Ethernet.
-Framing then happens at the source in the ISP's premises, called an
-*Optical Line Terminal* (OLT), and at the end-points in individual
-homes, called an *Optical Network Unit* (ONU).
+Framing then happens at the source in the ISP's premises, in a device
+called an *Optical Line Terminal* (OLT), and at the end-points in
+individual homes, in a device called an *Optical Network Unit* (ONU).
 
 For this reason, PON has to implement some form of multi-access
-protocol. The approach it adopts is easily summarized as
-follows. First, upstream and downstream traffic are transmitted on two
+protocol. The approach it adopts can be summarized as follows.
+First, upstream and downstream traffic are transmitted on two
 diffrent optical wavelengths, so they are completely independent of
 each other. Downstream traffic starts at the OLT and the signal is
 propogated down every link in the PON. As a consequence, every frame
 reaches every ONU. This device then looks at a unique identifier in
 the individual frames sent over the wavelength, and either keeps the
-frame (if the identifier is for it) or drops it (if not). Encryption
-is used to keep ONUs from eavesdropping on their neighbors' traffic.
+frame (if the identifier is for it) or drops it (if not). Encryption is
+used to keep ONUs from eavesdropping on their neighbors' traffic.
 
 Upstream traffic is then time-division multiplexed on the upstream
 wavelength, with each ONU periodically getting a turn to transmit.
@@ -56,10 +56,10 @@ in kilometers) and at different distances from the OLT, it is not
 practical for the them to transmit based on synchronized clocks, as in
 SONET. Instead, the ONT transmits *grants* to the individual ONUs,
 giving them a time interval during which they can transmit. In other
-words, the single OLT is responsible for enforcing the round-robin
-sharing of the shared PON. This includesthe possibility that the OLT
-can grant each ONU a different share of time, effectively implementing
-different levels of service.
+words, the single OLT is responsible for centrally implementing the
+round-robin sharing of the shared PON. This includes the possibility
+that the OLT can grant each ONU a different share of time, effectively
+implementing different levels of service.
 
 PON is similar to Ethernet in the sense that it defines a sharing
 algorithm that has evolved over time to accommodate higher and higher
@@ -69,7 +69,7 @@ now starting to be deployed.
 
 ## Celluar Network
 
-While cellular telephone technology had its beginning in voice 
+While cellular telephone technology had its roots in analog voice 
 communication, data services based on cellular standards are now
 the norm, thanks in no small part to the increasing capabilities
 of smartphones. Like Wi-Fi, celluar networks transmit data at certain
@@ -80,15 +80,17 @@ frequency bands have been auctioned off and licensed to service
 providers, who in turn sell mobile access service to their consumers.
 
 The frequency bands that are used for cellular networks vary around
-the world, and are complicated by the fact that ISPs have to
+the world, and are complicated by the fact that ISPs often
 simultaneously support both old/legacy technologies and
 new/next-generation technologies, each of which occupies a different
-frequency band. The high-level summary is that the full gamet of
-cellular technolgies range from 700-MHz to 1900-MHz. One interesting
-footnote is that there is also an unlicensed band at 3.5-GHz set
-aside in North America, called *Citizens Broadband Radio Service*
-(CBRS), that anyone with a celluar radio can use. This opens the door
-for setting up private cellular networks.
+frequency band. The high-level summary is that traditional cellular
+technolgies range from 700-MHz to 2400-MHz, with new mid-spectrum
+allocations now happening at 6-GHz and millimeter-wave (mmWave)
+allocations openning in the 30 to 300-GHz band. One interesting
+footnote is that there is also an unlicensed band at 3.5-GHz set aside
+in North America, called *Citizens Broadband Radio Service* (CBRS),
+that anyone with a celluar radio can use. This opens the door for
+setting up private cellular networks.
 
 Like 802.11, cellular technology relies on the use of base stations
 that are connected to a wired network. In the case of the cellular
@@ -125,26 +127,25 @@ As of 3G, the generational designation actually corresponds to a
 standard defined by the 3GPP (3rd Generation Partnership Project).
 Even though its name has "3G" in it, the 3GPP continues to define the
 standard for 4G and 5G, each of which corresponds to a release of the
-standard. Release 15, which is now available, is considered the
-demarcation point between 4G and 5G. Moreover, this standard is a
-fairly high-level specification, defining a set of requirements but
-leaving signifcant latitude in how the standard is implmented. For
-example, LTE, which stands for *Long-Term Evolution*, is the
-implementation many people associate with 4G.
+standard. Release 15, which is now published, is considered the
+demarcation point between 4G and 5G. By another name, this sequence
+of releases and generations is called LTE, which stands for *Long-Term
+Evolution*. The main takeaway is that while standards are published as
+a sequence of discrete releases, the industry as a whole is now on a
+fairly well-defined evolutionary path known as LTE.
 
-We use LTE as an example to get a sense of how the RAN works.
-There are three highlights. First, LTE uses a different multiplexing
-scheme for downlink and upslink traffic, with a fraction of the
-licensed band allocated to each. Second, for downlink traffic (from
-BBU to UE), LTE uses a hybrid multiplexing scheme called OFDMA
-(Orthogonal Frequency Division Multiple Access), which combines
-frequence-division multiplexing (carving the downlink frequency band
-into multiple sub-channels) and time-division multiplexing (allocating
+There are three highlights of LTE's air interface for 4G. First, it uses
+a different multiplexing scheme for downlink and uplink traffic.
+Second, for downlink traffic (from BBU to UE), LTE uses a hybrid
+multiplexing scheme called OFDMA (Orthogonal Frequency Division
+Multiple Access), which intuitively combines frequence-division
+multiplexing (carving the downlink frequency band into multiple
+overlapping sub-channels) and time-division multiplexing (allocating
 one or more sub-channels to a given UE for a certain slot of time).
 Giving the BBU two degrees of freedom improves its ability to squeeze
 the most capacity out of limited bandwidth allocated to it. Third, for
 uplink traffic (from UE to BBU), LTE uses SC-FDMA (Single Carrier,
 Frequence-Division Multiple Access). The main advantage of SC-FDMA
 over OFDMA is that it takes less power to transmit, which in the
-uplink direction, reduces the workload on the limited batteries in our
-cellphones.
+uplink direction, reduces the workload on the limited battery capacity
+in our cellphones.
