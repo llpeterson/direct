@@ -6,7 +6,7 @@ public spaces, most of us connect to the Internet over an *access* or
 *broadband* service that we buy from an ISP. This section
 describes two such technologies: *Passive Optical Networks* (PON),
 commonly referred to as fiber-to-the-home or fiber-to-the-premises,
-and *Celluar Networks* that connect our mobile devices. In both cases,
+and *Cellular Networks* that connect our mobile devices. In both cases,
 the networks are multi-access (like Ethernet and Wi-Fi), but as we will
 see, their approach to mediating access is quite different.
 
@@ -68,12 +68,12 @@ bandwidths. G-PON (Gigabit-PON) is the most widely deployed today,
 supporting a bandwidth of 2.25-Gbps. XGS-PON (10 Gigabit-PON) is just
 now starting to be deployed.
 
-## Celluar Network
+## Cellular Network
 
 While cellular telephone technology had its roots in analog voice 
 communication, data services based on cellular standards are now
 the norm, thanks in no small part to the increasing capabilities
-of smartphones. Like Wi-Fi, celluar networks transmit data at certain
+of smartphones. Like Wi-Fi, cellular networks transmit data at certain
 bandwidths in the radio spectrum. Unlike Wi-Fi, which permits anyone
 to use a channel at either 2.4 or 5 GHz (all you have to do is set up a
 base station, as many of us do in our homes), exclusive use of various
@@ -90,15 +90,15 @@ allocations now happening at 6-GHz and millimeter-wave (mmWave)
 allocations openning in the 30 to 300-GHz band. One interesting
 footnote is that there is also an unlicensed band at 3.5-GHz set aside
 in North America, called *Citizens Broadband Radio Service* (CBRS),
-that anyone with a celluar radio can use. This opens the door for
+that anyone with a cellular radio can use. This opens the door for
 setting up private cellular networks.
 
 Like 802.11, cellular technology relies on the use of base stations
 that are connected to a wired network. In the case of the cellular
-network, the base staions are often called *Broadband Base Units*
+network, the base stations are often called *Broadband Base Units*
 (BBU), the mobile devices that connect to them are usually referred to
 as *User Equipment* (UE), and the set of BBUs anchored at a given
-Central Office and serving a particualr region is collectively called
+Central Office and serving a particular region is collectively called
 a *Radio Access Network* (RAN).
 
 The geographic area served by a BBU's antenna is called a *cell*.
