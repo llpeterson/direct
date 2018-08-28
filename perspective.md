@@ -55,7 +55,7 @@ statement for this chapter, but before we can discuss these, we need
 to first introduce some simple physics. All of these links are made of
 some physical material that can propagate signals, such as radio waves
 or other sorts of electromagnetic radiation), but what we really want
-to do is send {\em bits}. In the later sections of this chapter, we'll
+to do is send *bits*. In the later sections of this chapter, we'll
 look at how to encode bits for transmission on a physical medium,
 followed by the other issues mentioned above. By the end of this
 chapter, we'll understand how to send complete packets over just about
