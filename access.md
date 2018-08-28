@@ -16,9 +16,10 @@ of that backbone are hundreds or thousands of edge sites, each of
 which serves a city or neighborhood. These edge sites are commonly
 called *Central Offices* in the Telco world and *Head Ends* in the
 cable world, but despite their names implying "centralized" and
-"root of the hierarchy" these sites are the ISP-side of the last mile,
-where the ISP directly connects to its customers. PON and Cellular
-access networks are anchored in these facilities.
+"root of the hierarchy" these sites are at the very edge of the ISP's
+network; the ISP-side of the last-mile that directly connects to
+customers. PON and Cellular access networks are anchored in these
+facilities.
 
 > DSL is the legacy, copper-based counterpart to PON. DSL links are 
 > also terminated in Telco Central Offices, but we do not describe 
@@ -111,7 +112,7 @@ cells. The current BBU senses the weakening signal from the phone and
 gives control of the device to whichever base station is receiving the
 strongest signal from it. If the device is involved in a call or other
 network session at the time, the session must be transferred to the
-new base station in what is called a *handoff*. Exactly about how
+new base station in what is called a *handoff*. Details about how
 handoffs are managed is beyond the scope of this book.
 
 There have been multiple generations of protocols implementing the

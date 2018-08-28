@@ -54,6 +54,12 @@ world. We sketched out some of these issues in the opening problem
 statement for this chapter, but before we can discuss these, we need
 to first introduce some simple physics. All of these links are made of
 some physical material that can propagate signals, such as radio waves
+or other sorts of electromagnetic radiation), but what we really want
+to do is send {\em bits}. In the later sections of this chapter, we'll
+look at how to encode bits for transmission on a physical medium,
+followed by the other issues mentioned above. By the end of this
+chapter, we'll understand how to send complete packets over just about
+any sort of link, no matter what physical medium is involved.
 
 One way to characterize links, then, is by the medium they use—typically,
 copper wire in some form, such as twisted pair (phone) and coaxial (cable);
@@ -119,7 +125,7 @@ types are found. Most consumers interact with the Internet either
 through wireless networks (which they encounter in coffee shops,
 airports, universities, etc.) or through so-called *last-mile* links
 (or alterntively, *access networks*) provided by an ISP, as
-illustrated in [Figure](#isp-access). These link types are summarized
+illustrated in [Figure 1](#isp-access). These link types are summarized
 in [Table 1](#home). They typically are chosen because they are
 cost-effective ways of reaching millions of consumers. DSL
 (Digital Subscriber Line), for example, is an older technology that was
