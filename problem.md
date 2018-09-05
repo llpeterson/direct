@@ -11,8 +11,7 @@ nodes together. We also introduced the "cloud" abstraction to represent
 a network without revealing all of its internal complexities. So we also
 need to address the similar problem of connecting a host to a cloud.
 This, in effect, is the problem every Internet Service Provider (ISP) faces
-when it wants to connect a new customer to the network: how to connect
-one more nodes to the ISP's cloud?
+when it wants to connect a new customer to its network.
 
 Whether we want to construct a trivial two-node network with one link or
 connect the one-billionth host to an existing network like the Internet,
@@ -25,7 +24,9 @@ wide area (e.g., transcontinental).
 
 Connecting two nodes with a suitable medium is only the first step,
 however. Five additional problems must be addressed before the nodes can
-successfully exchange packets.
+successfully exchange packets, and once addressed, we will have
+provided *Layer 2* (L2) connectivity (using terminology from the
+OSI architecture).
 
 The first is *encoding* bits onto the transmission medium so that they
 can be understood by a receiving node. Second is the matter of
@@ -53,7 +54,7 @@ widespread standard); fiber-to-the home (for which PON is the dominant
 standard); and mobile wireless (where 4G is rapidly morphing into 5G).
 
 The goal of this chapter is simultaneously to survey the available
-network technology and to explore these five fundamental issues. We
+link-level technology and to explore these five fundamental issues. We
 will examine what it takes to make a wide variety of different
 physical media and link technologies useful as building blocks for the
 construction of robust, scalable networks.
