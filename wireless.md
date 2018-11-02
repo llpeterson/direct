@@ -246,7 +246,7 @@ rates as well; for example, 802.11a allows for bit rates of 6, 9, 12,
 transmitted signals in the presence of noise. Different modulation
 schemes are used to achieve the various bit rates; in addition, the
 amount of redundant informationin the form of error-correcting codes is
-varied. (See for an introduction to error-detecting codes.) More
+varied. More
 redundant information means higher resilience to bit errors at the cost
 of lowering the effective data rate (since more of the transmitted bits
 are redundant).
@@ -326,7 +326,7 @@ CSMA/CD used on Ethernets. There are a few pieces to make this work.
 
 The Carrier Sense part seems simple enough: Before sending a packet, the
 transmitter checks if it can hear any other transmissions; if not, it
-sends. However, because of the hidden terminal problem, just waiting for
+sends. However, because of the hidden node problem, just waiting for
 the absence of signals from other transmitters does not guarantee that a
 collision will not occur from the perspective of the receiver. For this
 reason, one part of CSMA/CA is an explicit ACK from the receiver to the
@@ -336,10 +336,10 @@ receiver, the receiver sends an ACK back to the sender.
 Note that if a collision does occur, it will render the entire packet
 useless. For this reason, 802.11 adds an optional mechanism called
 RTS-CTS (Ready to Send-Clear to Send). This goes some way toward
-addressing the hidden terminal problem. The sender sends an RTS—a
+addressing the hidden node problem. The sender sends an RTS—a
 short packet—to the intended receiver, and if that packet is received
 successfully the receiver responds with another short packet, the CTS.
-Even though the RTS may not have been heard by a hidden terminal, the
+Even though the RTS may not have been heard by a hidden node, the
 CTS probably will be. This effectively tells the nodes within range of
 the receiver that they should not send anything for a while—the amount
 of time of the intended transmission is included in the RTS and CTS

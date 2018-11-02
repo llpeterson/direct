@@ -26,74 +26,63 @@ design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
 addressed in multiple-access networks like Ethernet and Wi-Fi.
 
-## Byte-Oriented Protocols (BISYNC, PPP, DDCMP)
+## Byte-Oriented Protocols (PPP)
 
 One of the oldest approaches to framing—it has its roots in connecting
 terminals to mainframes—is to view each frame as a collection of bytes
-(characters) rather than a collection of bits. Such a *byte-oriented*
-approach is exemplified by older protocols such as the Binary
-Synchronous Communication (BISYNC) protocol developed by IBM in the late
-1960s, and the Digital Data Communication Message Protocol (DDCMP) used
-in Digital Equipment Corporation's DECNET. The more recent and widely
-used Point-to-Point Protocol (PPP) provides another example of this
-approach.
+(characters) rather than a collection of bits. Early examples of such
+*byte-oriented* protocols are the Binary Synchronous Communication
+(BISYNC) protocol developed by IBM in the late 1960s, and the Digital
+Data Communication Message Protocol (DDCMP) used in Digital Equipment
+Corporation's DECNET. (Once upon a time, large computer companaies
+like IBM and DEC also built networks that their customers could join.)
+The widely used Point-to-Point Protocol (PPP) is a recent example of
+this approach.
 
-### Sentinel-Based Approaches
+### Sentinel-Based Approach
 
-[Figure 2](#bisync) illustrates the BISYNC protocol's frame format.
-This figure is the first of many that you will see in this book that are
-used to illustrate frame or packet formats, so a few words of
-explanation are in order. We show a packet as a sequence of labeled
-fields. Above each field is a number indicating the length of that field
-in bits. Note that the packets are transmitted beginning with the
-leftmost field.
+One general approach adopted by byte-oriented framing protocols is to
+use special characters known as *sentinel characters* to indicate
+where frames start and end. The idea is to denote the beginning of a
+frame by sending a special SYN (synchronization) character. The data
+portion of the frame is then sometimes contained between two more
+special characters: STX (start of text) and ETX (end of text). The problem
+with the sentinel approach, of course, is that one of the special
+characters might appear in the data portion of the frame. The standard
+way to overcome this problem by "escaping" the character by preceding
+it with a DLE (data-link-escape) character whenever it appears in the
+body of a frame; the DLE character is also escaped (by preceding it
+with an extra DLE) in the frame body. (C programmers may notice that
+this is analogous to the way a quotation mark is escaped by the
+backslash when it occurs inside a string.) This approach is often
+called *character stuffing* because extra characters are inserted in
+the data portion of the frame.
 
-<figure class="line">
-	<a id="bisyn"></a>
-	<img src="figures/f02-07-9780123850591.png" width="400px"/>
-	<figcaption>BISYNC frame format.</figcaption>
-</figure>
-
-BISYNC uses special characters known as *sentinel characters* to
-indicate where frames start and end. The beginning of a frame is denoted
-by sending a special SYN (synchronization) character. The data portion
-of the frame is then contained between two more special characters: STX
-(start of text) and ETX (end of text). The SOH (start of header) field
-serves much the same purpose as the STX field. The problem with the
-sentinel approach, of course, is that the ETX character might appear in
-the data portion of the frame. BISYNC overcomes this problem by
-"escaping" the ETX character by preceding it with a DLE
-(data-link-escape) character whenever it appears in the body of a frame;
-the DLE character is also escaped (by preceding it with an extra DLE) in
-the frame body. (C programmers may notice that this is analogous to the
-way a quotation mark is escaped by the backslash when it occurs inside a
-string.) This approach is often called *character stuffing* because
-extra characters are inserted in the data portion of the frame.
-
-The frame format also includes a field labeled CRC (cyclic redundancy
-check), which is used to detect transmission errors; various algorithms
-for error detection are presented in a later section. Finally, the frame
-contains additional header fields that are used for, among other things,
-the link-level reliable delivery algorithm. Examples of these algorithms
-are given in a later section.
-
-The more recent Point-to-Point Protocol (PPP), which is commonly used to
+The Point-to-Point Protocol (PPP), which is commonly used to
 carry Internet Protocol packets over various sorts of point-to-point
-links, is similar to BISYNC in that it also uses sentinels and character
-stuffing. The format for a PPP frame is given in [Figure 3](#ppp). The
-special start-of-text character, denoted as the `Flag` field
-is `01111110`. The `Address` and `Control` fields
-usually contain default values and so are uninteresting. The (Protocol)
-field is used for demultiplexing; it identifies the high-level protocol
-such as IP or IPX (an IP-like protocol developed by Novell). The frame
-payload size can be negotiated, but it is 1500 bytes by default. The
-`Checksum` field is either 2 (by default) or 4 bytes long.
+links, uses sentinels and character stuffing. The format for a PPP
+frame is given in [Figure 2](#ppp).
 
 <figure class="line">
 	<a id="ppp"></a>
 	<img src="figures/f02-08-9780123850591.png" width="500px"/>
 	<figcaption>PPP frame format.</figcaption>
 </figure>
+
+This figure is the first of many that you will see in this book that are 
+used to illustrate frame or packet formats, so a few words of 
+explanation are in order. We show a packet as a sequence of labeled 
+fields. Above each field is a number indicating the length of that field 
+in bits. Note that the packets are transmitted beginning with the 
+leftmost field. 
+
+The special start-of-text character, denoted as the `Flag` field
+is `01111110`. The `Address` and `Control` fields
+usually contain default values and so are uninteresting. The (Protocol)
+field is used for demultiplexing; it identifies the high-level protocol,
+such as IP. The frame payload size can be negotiated, but it is
+1500 bytes by default. The `Checksum` field is either 2 (by default)
+or 4 bytes long.
 
 The PPP frame format is unusual in that several of the field sizes are
 negotiated rather than fixed. This negotiation is conducted by a
@@ -113,8 +102,8 @@ As every Computer Science 101 student knows, the alternative to
 detecting the end of a file with a sentinel value is to include the
 number of items in the file at the beginning of the file. The same is
 true in framing—the number of bytes contained in a frame can be
-included as a field in the frame header. The DECNET's DDCMP uses this
-approach, as illustrated in [Figure 4](#ddcmp). In this
+included as a field in the frame header. DDCMP used this
+approach, as illustrated in [Figure 3](#ddcmp). In this
 example, the `COUNT` field specifies how many bytes are contained in
 the frame's body.
 
@@ -146,7 +135,7 @@ Link Control (SDLC) protocol developed by IBM is an example of a
 bit-oriented protocol; SDLC was later standardized by the ISO as the
 High-Level Data Link Control (HDLC) protocol. In the following
 discussion, we use HDLC as an example; its frame format is given in
-[Figure 5](#hdlc).
+[Figure 4](#hdlc).
 
 HDLC denotes both the beginning and the end of a frame with the
 distinguished bit sequence `01111110`. This sequence is also transmitted
@@ -225,7 +214,7 @@ bit stuffing is used, so that a frame's length does not depend on the
 data being sent. So the question to ask is "How does the receiver know
 where each frame starts and ends?" We consider this question for the
 lowest-speed SONET link, which is known as STS-1 and runs at 51.84 Mbps.
-An STS-1 frame is shown in [Figure 6](#sonet-frame). It is arranged as
+An STS-1 frame is shown in [Figure 5](#sonet-frame). It is arranged as
 9 rows of 90 bytes each, and the first 3 bytes of each row are overhead,
 with the rest being available for data that is being transmitted over
 the link. The first 2 bytes of the frame contain a special bit pattern,
@@ -307,7 +296,7 @@ Although it is accurate to view an STS-N signal as being used to
 multiplex N STS-1 frames, the payload from these STS-1 frames can be
 linked together to form a larger STS-N payload; such a link is denoted
 STS-Nc (for *concatenated*). One of the fields in the overhead is used
-for this purpose. [Figure 7](#sonet1) schematically depicts
+for this purpose. [Figure 6](#sonet1) schematically depicts
 concatenation in the case of three STS-1 frames being concatenated into
 a single STS-3c frame. The significance of a SONET link being designated
 as STS-3c rather than STS-3 is that, in the former case, the user of the
@@ -325,7 +314,7 @@ it assumes that the payload for each frame is completely contained
 within the frame. (Why wouldn't it be?) In fact, we should view the
 STS-1 frame just described as simply a placeholder for the frame, where
 the actual payload may *float* across frame boundaries. This situation
-is illustrated in [Figure 8](#sonet3). Here we see both the STS-1
+is illustrated in [Figure 7](#sonet3). Here we see both the STS-1
 payload floating across two STS-1 frames and the payload shifted some
 number of bytes to the right and, therefore, wrapped around. One of the
 fields in the frame overhead points to the beginning of the payload. The

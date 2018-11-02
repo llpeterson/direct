@@ -30,12 +30,8 @@ One of the most common techniques for detecting transmission errors is a
 technique known as the *cyclic redundancy check* (CRC). It is used in
 nearly all the link-level protocols discussed in this chapter.
 This section outlines the basic CRC algorithm, but before discussing
-that approach, we consider two simpler schemes:
-*two-dimensional parity* and *checksums*. The former is used by the
-BISYNC protocol when it is transmitting ASCII characters (CRC is used as
-the error-detecting code when BISYNC is used to transmit EBCDIC, an
-alternative character encoding scheme used in the 1960s), and the
-latter is used by several Internet protocols.
+that approach, we first describe the simpler *checksum* scheme used
+by several Internet protocols.
 
 The basic idea behind any error detection scheme is to add redundant
 information to a frame that can be used to determine if errors have been
@@ -86,39 +82,11 @@ we urge you to use the word *checksum* only to apply to codes that
 actually do use addition and to use *error-detecting code* to refer to
 the general class of codes described in this section.
 
-## Two-Dimensional Parity
-
-Two-dimensional parity is exactly what the name suggests. It is based on
-"simple" (one-dimensional) parity, which usually involves adding one
-extra bit to a 7-bit code to balance the number of 1s in the byte. For
-example, odd parity sets the eighth bit to 1 if needed to give an odd
-number of 1s in the byte, and even parity sets the eighth bit to 1 if
-needed to give an even number of 1s in the byte. Two-dimensional parity
-does a similar calculation for each bit position across each of the
-bytes contained in the frame. This results in an extra parity byte for
-the entire frame, in addition to a parity bit for each
-byte. [Figure 1](#two-dparity) below illustrates how two-dimensional
-even parity works for an example frame containing 6 bytes of
-data. Notice that the third bit of the parity byte is 1 since there is
-an odd number of 1s in the third bit across the 6 bytes in the
-frame. It can be shown that two-dimensional parity catches all 1-, 2-,
-and 3-bit errors, and most 4-bit errors. In this case, we have added
-14 bits of redundant information to a 42-bit message, and yet we have
-stronger protection against common errors than the "repetition code"
-described above.
-
-<figure class="line">
-	<a id="two-dparity"></a>
-	<img src="figures/f02-14-9780123850591.png" width="200px"/>
-	<figcaption>Two-dimensional parity.</figcaption>
-</figure>
-
 ## Internet Checksum Algorithm
 
-A second approach to error detection is exemplified by the Internet
+Our first approach to error detection is exemplified by the Internet
 checksum. Although it is not used at the link level, it nevertheless
-provides the same sort of functionality as CRCs and parity, so we
-discuss it here.
+provides the same sort of functionality as CRCs, so we discuss it here.
 
 The idea behind the Internet checksum is very simple—you add up all
 the words that are transmitted and then transmit the result of that sum.
@@ -302,7 +270,7 @@ step 1. This part will become clearer with an example.
 Consider the message $$x^7 + x^4 + x^3 + x^1$$, or 10011010. We begin by
 multiplying by $$x^3$$, since our divisor polynomial is of degree 3. This
 gives 10011010000. We divide this by $$C(x)$$, which corresponds to 1101
-in this case. [Figure 2](#crcalc) shows the polynomial long-division
+in this case. [Figure 1](#crcalc) shows the polynomial long-division
 operation. Given the rules of polynomial arithmetic described above,
 the long-division operation proceeds much as it would if we were
 dividing integers. Thus, in the first step of our example, we see that
@@ -316,7 +284,7 @@ the "result" of the long division, which appears at the top of the
 calculation, is not really of much interest—it is the remainder at the
 end that matters.
 
-You can see from the very bottom of [Figure 2](#crcalc) that the
+You can see from the very bottom of [Figure 1](#crcalc) that the
 remainder of the example calculation is 101. So we know that 10011010000
 minus 101 would be exactly divisible by $$C(x)$$, and this is what we
 send. The minus operation in polynomial arithmetic is the logical XOR
@@ -405,7 +373,7 @@ For example, Ethernet uses CRC-32, which is defined as follows:
 Finally, we note that the CRC algorithm, while seemingly complex, is
 easily implemented in hardware using a $$k$$-bit shift register and XOR
 gates. The number of bits in the shift register equals the degree of the
-generator polynomial ($$k$$). [Figure 3](#crc-hard) shows the hardware
+generator polynomial ($$k$$). [Figure 2](#crc-hard) shows the hardware
 that would be used for the generator $$x^3 + x^2 + 1$$ from our previous
 example. The message is shifted in from the left, beginning with the
 most significant bit and ending with the string of $$k$$ zeros that is

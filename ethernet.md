@@ -22,9 +22,9 @@ Aloha, developed at the University of Hawaii to support computer
 communication across the Hawaiian Islands. Like the Aloha network, the
 fundamental problem faced by the Ethernet is how to mediate access to a
 shared medium fairly and efficiently (in Aloha, the medium was the
-atmosphere, while in the Ethernet the medium is a coax cable). The core
-idea in both Aloha and the Ethernet is an algorithm that controls when
-each node can transmit.
+atmosphere, while in the Ethernet the medium was originally a coax
+cable). The core idea in both Aloha and the Ethernet is an algorithm
+that controls when each node can transmit.
 
 Interestingly, modern Ethernet links are now largely point to point;
 that is, they connect one host to an Ethernet *switch*, or they
@@ -268,7 +268,7 @@ about an Ethernet: Why is its length limited to only 2500 m? Why not 10
 or 1000 km? The answer to both questions has to do with the fact that the
 farther apart two nodes are, the longer it takes for a frame sent by one
 to reach the other, and the network is vulnerable to a collision
-duringthis time.
+during this time.
 
 <figure class="line">
 	<a id="worst"></a>
@@ -321,38 +321,30 @@ after a given number of tries and reports a transmit error to the
 host. Adaptors typically retry up to 16 times, although the backoff
 algorithm caps $$n$$ in the above formula at 10.
 
-## Experience with Ethernet
+## Longevity of Ethernet
 
-Because Ethernets have been around for so many years and are so popular,
-we have a great deal of experience in using them. One of the most
-important observations people have made about multi-access Ethernets is
-that they work best under lightly loaded conditions. This is because
-under heavy loads (typically, a utilization of over 30% is considered
-heavy on an Ethernet) too much of the network's capacity is wasted by
-collisions.
+Ethernet has been the dominant local area network technology for over
+30 years. Today it is typically deployed point-to-point rather than
+tapping into a coax cable, it often runs at speeds of 1 or 10 Gbps
+rather than 10 Mbps, and it allow of jumbo packets with up to 9000
+bytes of data rather than 1500 bytes. But, it remains backwards
+compatible with the original standard. This makes it worth saying a
+few words about why Ethernets have been so successful, so that we can
+understand the properties we should emulate with any technology that
+tries to replace it.
 
-To mitigate these concerns, multi-access Ethernets were typically used
-in a far more conservative way than the standard allows. For example,
-most Ethernets had fewer than 200 hosts connected to them, which is far
-fewer than the maximum of 1024. Similarly, most Ethernets were far
-shorter than 2500 m, with a round-trip delay of closer to 5 $$\mu$$s than
-51.2 $$\mu$$s. Another factor that made Ethernets practical is that, even
-though Ethernet adaptors do not implement link-level flow control, the
-hosts typically provide an end-to-end flow-control mechanism.
-As a result, it is rare to find situations in which any one host is
-continuously pumping frames onto the network.
+First, an Ethernet is extremely easy to administer and maintain: There
+is no routing or configuration tables to be kept up-to-date, and it is
+easy to add a new host to the network. It is hard to imagine a simpler
+network to administer. Second, it is inexpensive: cable/fiber is
+relatively cheap, and the only other cost is the network adaptor on
+each host. Ethernet became deeply entrenched for these reasons, and
+any switch-based approach that aspired to displace it required
+additional investment in infrastructure (the switches), on top of the
+cost of each adaptor. The switch-based variant of Ethernet did
+eventually succeed in replacing multi-access Ethernet, but this is in
+part because it could be delpoyed incrementally—with some hosts
+connected by point-to-point links to switches while others remained
+tapped into coax—all the while retaining the simplicity of network
+administration.
 
-Finally, it is worth saying a few words about why Ethernets have been so
-successful, so that we can understand the properties we should emulate
-with any technology that tries to replace it. First, an Ethernet is
-extremely easy to administer and maintain: There is no routing or
-configuration tables to be kept up-to-date, and it is easy to add a
-new host to the network. It is hard to imagine a simpler network to
-administer. Second, it is inexpensive: Cable is cheap, and the only
-other cost is the network adaptor on each host. Ethernet became deeply
-entrenched for these reasons, and any switch-based approach that
-aspired to displace it required additional investment in
-infrastructure (the switches), on top of the cost of each adaptor. A
-switch-based technology did eventually succeed in replacing
-multi-access Ethernet, but retaining the simplicity of administration
-was a key reason for switched Ethernet's success.

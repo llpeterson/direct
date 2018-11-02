@@ -52,7 +52,7 @@ used to keep ONUs from eavesdropping on their neighbors' traffic.
 
 Upstream traffic is then time-division multiplexed on the upstream
 wavelength, with each ONU periodically getting a turn to transmit.
-Because the OLTs are distributed over a fairly wide area (measured
+Because the ONUs are distributed over a fairly wide area (measured
 in kilometers) and at different distances from the OLT, it is not
 practical for the them to transmit based on synchronized clocks, as in
 SONET. Instead, the ONT transmits *grants* to the individual ONUs,
@@ -78,7 +78,7 @@ bandwidths in the radio spectrum. Unlike Wi-Fi, which permits anyone
 to use a channel at either 2.4 or 5 GHz (all you have to do is set up a
 base station, as many of us do in our homes), exclusive use of various
 frequency bands have been auctioned off and licensed to service
-providers, who in turn sell mobile access service to their consumers.
+providers, who in turn sell mobile access service to their subscribers.
 
 The frequency bands that are used for cellular networks vary around
 the world, and are complicated by the fact that ISPs often

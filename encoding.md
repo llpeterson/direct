@@ -83,7 +83,7 @@ explicit job of merging the clock with the signal by transmitting the
 exclusive OR of the NRZ-encoded data and the clock. (Think of the
 local clock as an internal signal that alternates from low to high; a
 low/high pair is considered one clock cycle.) The Manchester encoding
-is also illustrated in [Figure 3](#encode-all) below. Observe that
+is also illustrated in [Figure 3](#encode-all). Observe that
 the Manchester encoding results in 0 being encoded as a low-to-high
 transition and 1 being encoded as a high-to-low transition. Because
 both 0s and 1s result in a transition to the signal, the clock can be
@@ -109,6 +109,15 @@ the receiver had been able to keep up with the faster baud rate required
 by the Manchester encoding in [Figure 3](#encode-all), then
 both NRZ and NRZI could have been able to transmit twice as many bits
 in the same time period.
+
+> The bit rate isn't necessarily less than or equal to the baud
+> rate, as the Manchester encoding suggests. If the modulation scheme
+> is able to utilize (and recognize) four different signals, as
+> opposed to just two—e.g., "high" and "low"—then it is possible to
+> encode two bits into each clock interval, resulting in a bit rate
+> that is twice the baud rate. Similarly, being able to modulate
+> among eight different signals means being able to transmit three
+> bits per clock interval.
 
 A final encoding that we consider, called *4B/5B*, attempts to address
 the inefficiency of the Manchester encoding without suffering from the

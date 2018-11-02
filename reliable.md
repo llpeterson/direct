@@ -244,7 +244,7 @@ full but adds complexity to the implementation.
 
 The sending window size is selected according to how many frames we want
 to have outstanding on the link at a given time; `SWS` is easy to
-compute for a given delay $\times$ bandwidth product. On the other
+compute for a given delay $$\times$$ bandwidth product. On the other
 hand, the receiver can set `RWS` to whatever it wants. Two common
 settings are `RWS = 1`, which implies that the receiver
 will not buffer any frames that arrive out of order, and `RWS = SWS`,
@@ -604,12 +604,12 @@ level.
 
 ## Concurrent Logical Channels
 
-The data link protocol used in the ARPANET provides an interesting
-alternative to the sliding window protocol, in that it is able to keep
-the pipe full while still using the simple stop-and-wait algorithm. One
-important consequence of this approach is that the frames sent over a
-given link are not kept in any particular order. The protocol also
-implies nothing about flow control.
+The data link protocol used in the original ARPANET provides an
+interesting alternative to the sliding window protocol, in that it is
+able to keep the pipe full while still using the simple stop-and-wait
+algorithm. One important consequence of this approach is that the
+frames sent over a given link are not kept in any particular
+order. The protocol also implies nothing about flow control.
 
 The idea underlying the ARPANET protocol, which we refer to as
 *concurrent logical channels*, is to multiplex several logical channels

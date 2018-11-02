@@ -27,7 +27,7 @@ strategies.
 	<figcaption>An end-user's view of the  Internet.</figcaption>
 </figure>
 
-[Figure 1](#isp-access) illustrates various types of links as
+[Figure 1](#isp-access) illustrates various types of links
 that might be found in today's Internet. On the left, we see a
 variety of end-user devices ranging from smartphones to tablets to
 full-fledged computers connected by various means to an ISP. While
@@ -47,7 +47,7 @@ to care what sort of link connects it to other routers—it can send a
 packet on the link with a pretty good expectation that the packet will
 reach the other end of the link.
 
-How do we make all these different types of link look sufficiently alike
+How do we make all these different types of links look sufficiently alike
 to end users and routers? Essentially, we have to deal with all the
 physical limitations and shortcomings of links that exist in the real
 world. We sketched out some of these issues in the opening problem
