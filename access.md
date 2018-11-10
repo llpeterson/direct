@@ -39,9 +39,28 @@ Framing then happens at the source in the ISP's premises, in a device
 called an *Optical Line Terminal* (OLT), and at the end-points in
 individual homes, in a device called an *Optical Network Unit* (ONU).
 
-For this reason, PON has to implement some form of multi-access
-protocol. The approach it adopts can be summarized as follows.
-First, upstream and downstream traffic are transmitted on two
+[Figure 1](#pon) shows an example PON, simplified to depict just one
+ONU and one OLT. In practice, a Central Office would include multiple
+OLTs connecting to thousands of customer homes. For completeness,
+[Figure 1](#pon) also includes two other details about how the PON is
+connected to the ISP's backbone (and hence, to the rest of the
+Internet). The *Agg Switch* aggregates traffic from a set of OLTs, and
+the *BNG* (Broadband Network Gateway) is a piece of Telco equipment
+that, among many other things, meters Internet traffic for the sake
+of billing. As its name implies, the BNG is effectively the gateway
+between the access network (everything to the left of the BNG) and the
+Internet (everything to the right of the BNG).
+
+<figure class="line">
+	<a id="pon"></a>
+	<img src="figures/access/Slide1.png" width="600px"/>
+	<figcaption>An example PON that connects OLTs in the Central Office 
+	to ONUs in homes and businesses.</figcaption>
+</figure>
+
+Because the splitters are passive, PON has to implement some form of
+multi-access protocol. The approach it adopts can be summarized as
+follows. First, upstream and downstream traffic are transmitted on two
 diffrent optical wavelengths, so they are completely independent of
 each other. Downstream traffic starts at the OLT and the signal is
 propogated down every link in the PON. As a consequence, every frame
@@ -54,7 +73,7 @@ Upstream traffic is then time-division multiplexed on the upstream
 wavelength, with each ONU periodically getting a turn to transmit.
 Because the ONUs are distributed over a fairly wide area (measured
 in kilometers) and at different distances from the OLT, it is not
-practical for the them to transmit based on synchronized clocks, as in
+practical for them to transmit based on synchronized clocks, as in
 SONET. Instead, the ONT transmits *grants* to the individual ONUs,
 giving them a time interval during which they can transmit. In other
 words, the single OLT is responsible for centrally implementing the
@@ -97,9 +116,30 @@ Like 802.11, cellular technology relies on the use of base stations
 that are connected to a wired network. In the case of the cellular
 network, the base stations are often called *Broadband Base Units*
 (BBU), the mobile devices that connect to them are usually referred to
-as *User Equipment* (UE), and the set of BBUs anchored at a given
-Central Office and serving a particular region is collectively called
-a *Radio Access Network* (RAN).
+as *User Equipment* (UE), and the set of BBUs are anchored at an *Evolved
+Packet Core* (EPC) hosted in a Central Office. The wireless network
+served by the EPC is often called a *Radio Access Network* (RAN).
+
+[Figure 2](#ran) depicts one possible configuration of the end-to-end
+scenario, with two additional bits of detail. The EPC has multiple
+subcomponents, including an MME (Mobility Management Entity)
+and an S/PGW (Session/Packet Gateway); the former tracks and manages
+the movement of UEs throughout the RAN, and the latter processes and
+forwards packets between the RAN and the Internet. We say "one
+possible configuration" because the celluar standards allow wide
+variability in how many S/PGWs a given MME is responsible for, making
+is possible for a single MME to manage mobility across a wide
+geographic area that is served by multiple Central Offices. Finally,
+while not explicitly spelled out in [Figure 2](#ran), it is often the
+case that the ISP's PON network is used to connect the remote BBUs
+back to the Central Office.
+
+<figure class="line">
+	<a id="ran"></a>
+	<img src="figures/access/Slide2.png" width="600px"/>
+	<figcaption>A Radio Access Network (RAN) connecting a set of cellular devices
+	(UEs) to an Evolved Packet Core (EPC) hosted in a Central Office.</figcaption>
+</figure>
 
 The geographic area served by a BBU's antenna is called a *cell*.
 A BBU could serve a single cell or use multiple directional antennas
@@ -112,8 +152,11 @@ cells. The current BBU senses the weakening signal from the phone and
 gives control of the device to whichever base station is receiving the
 strongest signal from it. If the device is involved in a call or other
 network session at the time, the session must be transferred to the
-new base station in what is called a *handoff*. Details about how
-handoffs are managed is beyond the scope of this book.
+new base station in what is called a *handoff*. The decision making
+process for handoffs is under the purview of the MME, which has
+historically been a proprietary aspect of the cellular equipment
+vendors (although open source MME implementations are now starting
+to be available).
 
 There have been multiple generations of protocols implementing the
 cellular network, colloquially known as 1G, 2G, 3G, and so on. The first
@@ -135,8 +178,8 @@ Evolution*. The main takeaway is that while standards are published as
 a sequence of discrete releases, the industry as a whole is now on a
 fairly well-defined evolutionary path known as LTE.
 
-There are three highlights of LTE's air interface for 4G. First, it uses
-a different multiplexing scheme for downlink and uplink traffic.
+There are three highlights of LTE's air interface for 5G. First, it allows
+for a different multiplexing scheme for downlink and uplink traffic.
 Second, for downlink traffic (from BBU to UE), LTE uses a hybrid
 multiplexing scheme called OFDMA (Orthogonal Frequency Division
 Multiple Access), which intuitively combines frequence-division
@@ -144,9 +187,20 @@ multiplexing (carving the downlink frequency band into multiple
 overlapping sub-channels) and time-division multiplexing (allocating
 one or more sub-channels to a given UE for a certain slot of time).
 Giving the BBU two degrees of freedom improves its ability to squeeze
-the most capacity out of limited bandwidth allocated to it. Third, for
-uplink traffic (from UE to BBU), LTE uses SC-FDMA (Single Carrier,
-Frequence-Division Multiple Access). The main advantage of SC-FDMA
-over OFDMA is that it takes less power to transmit, which in the
-uplink direction, reduces the workload on the limited battery capacity
-in our cellphones.
+the most capacity out of limited bandwidth allocated to it. Interestingly,
+BBUs also have the ability to increase/decrease the power they use
+to transmit on a given sub-channel, effectively allowing them to
+dynamically change cell size. This means it's possible to move UEs
+from one cell to another on the fly, providing yet another opportunity
+to optimize their use of the radio spectrum. Third, for uplink traffic
+(from UE to BBU), LTE allows for SC-FDMA (Single Carrier,
+Frequence-Division Multiple Access) as an option. The main advantage
+of SC-FDMA over OFDMA is that it takes less power to transmit, which
+in the uplink direction, reduces the workload on the limited battery
+capacity in our cellphones.
+
+The bottom line is that 5G isn't just about higher bandwidths and more
+efficient use of the spectrum. By changing how data is modulated,
+there will be opportunities for ISPs to offer new services to their subscribers.
+The challenge will be in how to control and take advantage of that new
+capability.
