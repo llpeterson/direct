@@ -120,6 +120,13 @@ as *User Equipment* (UE), and the set of BBUs are anchored at an *Evolved
 Packet Core* (EPC) hosted in a Central Office. The wireless network
 served by the EPC is often called a *Radio Access Network* (RAN).
 
+> BBUs currently go by another name—Evolved NodeB, often abbreviated
+> eNodeB or eNB—where NodeB is what the radio unit was called in an
+> early incarnation of cellular networks (and has since evolved).
+> Given that the cellular world continues to evolve at a rapid pace
+> and there's good reason to believe eNB will be out-of-date before
+> long, we have decided to use the more generic and less cryptic BBU.
+
 [Figure 2](#ran) depicts one possible configuration of the end-to-end
 scenario, with two additional bits of detail. The EPC has multiple
 subcomponents, including an MME (Mobility Management Entity)
@@ -130,8 +137,8 @@ possible configuration" because the celluar standards allow wide
 variability in how many S/PGWs a given MME is responsible for, making
 is possible for a single MME to manage mobility across a wide
 geographic area that is served by multiple Central Offices. Finally,
-while not explicitly spelled out in [Figure 2](#ran), it is often the
-case that the ISP's PON network is used to connect the remote BBUs
+while not explicitly spelled out in [Figure 2](#ran), it is sometimes
+the case that the ISP's PON network is used to connect the remote BBUs
 back to the Central Office.
 
 <figure class="line">
@@ -178,29 +185,29 @@ Evolution*. The main takeaway is that while standards are published as
 a sequence of discrete releases, the industry as a whole is now on a
 fairly well-defined evolutionary path known as LTE.
 
-There are three highlights of LTE's air interface for 5G. First, it allows
-for a different multiplexing scheme for downlink and uplink traffic.
-Second, for downlink traffic (from BBU to UE), LTE uses a hybrid
-multiplexing scheme called OFDMA (Orthogonal Frequency Division
-Multiple Access), which intuitively combines frequence-division
-multiplexing (carving the downlink frequency band into multiple
-overlapping sub-channels) and time-division multiplexing (allocating
-one or more sub-channels to a given UE for a certain slot of time).
-Giving the BBU two degrees of freedom improves its ability to squeeze
-the most capacity out of limited bandwidth allocated to it. Interestingly,
-BBUs also have the ability to increase/decrease the power they use
-to transmit on a given sub-channel, effectively allowing them to
-dynamically change cell size. This means it's possible to move UEs
-from one cell to another on the fly, providing yet another opportunity
-to optimize their use of the radio spectrum. Third, for uplink traffic
-(from UE to BBU), LTE allows for SC-FDMA (Single Carrier,
-Frequence-Division Multiple Access) as an option. The main advantage
-of SC-FDMA over OFDMA is that it takes less power to transmit, which
-in the uplink direction, reduces the workload on the limited battery
-capacity in our cellphones.
+The main innovaition of LTE's air interface for 5G is the flexibility
+it provides. 5G uses a hybrid multiplexing scheme called OFDMA
+(Orthogonal Frequency Division Multiple Access), which intuitively
+combines frequence-division multiplexing (carving the frequency band
+into multiple overlapping sub-channels) and time-division multiplexing
+(allocating one or more sub-channels to a given UE for a certain slot
+of time). OFDMA also uses a coding scheme known as LDPC (Low Density
+Parity Check) that ensures the probability of inter-symbol
+interference for transimssions on adjacent sub-channels is zero.
+Another way of thinking about LDPC is that the way it encodes bits
+onto signals includes enough redundancy (i.e., a form of FEC) to
+ensure the receiver is able able recover the original data even when
+signals overlap. In addition, BBUs also have the ability to
+increase/decrease the power they use to transmit on a given
+sub-channel, effectively allowing them to dynamically change cell
+size. This makes it possible to move UEs from one cell to another on
+the fly.
 
-The bottom line is that 5G isn't just about higher bandwidths and more
-efficient use of the spectrum. By changing how data is modulated,
-there will be opportunities for ISPs to offer new services to their subscribers.
-The challenge will be in how to control and take advantage of that new
-capability.
+Taken all together, this gives the RAN three degrees of freedom, which
+improves its ability to squeeze the most capacity out of the
+limited spectrum. More importantly, this flexibility provides
+opportunities for ISPs to offer new services to their subscribers,
+supporting applications that range from bandwidth-hungry video and
+virutual/augmented reality to latency-sensitive autonomous cars and
+Internet-of-Things. The challenge of 5G is how to control and best
+take advantage of this flexibility.
