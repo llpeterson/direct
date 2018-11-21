@@ -21,7 +21,7 @@ and ends—is the central challenge faced by the adaptor.
 </figure>
 
 There are several ways to address the framing problem. This section uses
-several different protocols to illustrate the various points in the
+three different protocols to illustrate the various points in the
 design space. Note that while we discuss framing in the context of
 point-to-point links, the problem is a fundamental one that must also be
 addressed in multiple-access networks like Ethernet and Wi-Fi.
@@ -35,28 +35,42 @@ terminals to mainframes—is to view each frame as a collection of bytes
 (BISYNC) protocol developed by IBM in the late 1960s, and the Digital
 Data Communication Message Protocol (DDCMP) used in Digital Equipment
 Corporation's DECNET. (Once upon a time, large computer companaies
-like IBM and DEC also built networks that their customers could join.)
+like IBM and DEC also built private networks for their customers.)
 The widely used Point-to-Point Protocol (PPP) is a recent example of
 this approach.
 
-### Sentinel-Based Approach
+At a high level, there are two approaches to byte-oriented framing.
+The first is to use special characters known as *sentinel characters*
+to indicate where frames start and end. The idea is to denote the
+beginning of a frame by sending a special SYN (synchronization)
+character. The data portion of the frame is then sometimes contained
+between two more special characters: STX (start of text) and ETX (end
+of text). BISYNC used this approach. The problem with the sentinel
+approach, of course, is that one of the special characters might
+appear in the data portion of the frame. The standard way to overcome
+this problem by "escaping" the character by preceding it with a DLE
+(data-link-escape) character whenever it appears in the body of a
+frame; the DLE character is also escaped (by preceding it with an
+extra DLE) in the frame body. (C programmers may notice that this is
+analogous to the way a quotation mark is escaped by the backslash when
+it occurs inside a string.) This approach is often called *character
+stuffing* because extra characters are inserted in the data portion of
+the frame.
 
-One general approach adopted by byte-oriented framing protocols is to
-use special characters known as *sentinel characters* to indicate
-where frames start and end. The idea is to denote the beginning of a
-frame by sending a special SYN (synchronization) character. The data
-portion of the frame is then sometimes contained between two more
-special characters: STX (start of text) and ETX (end of text). The problem
-with the sentinel approach, of course, is that one of the special
-characters might appear in the data portion of the frame. The standard
-way to overcome this problem by "escaping" the character by preceding
-it with a DLE (data-link-escape) character whenever it appears in the
-body of a frame; the DLE character is also escaped (by preceding it
-with an extra DLE) in the frame body. (C programmers may notice that
-this is analogous to the way a quotation mark is escaped by the
-backslash when it occurs inside a string.) This approach is often
-called *character stuffing* because extra characters are inserted in
-the data portion of the frame.
+The alternative to detecting the end of a frame with a sentinel value 
+is to include the number of bytes in the frame at the beginning of the 
+frame, in the frame header. DDCMP used this approach. One danger with
+this approach is that a transmission error could corrupt the count
+field, in which case the end of the frame would not be correctly
+detected. (A similar problem exists with the sentinel-based approach
+if the ETX field becomes corrupted.) Should this happen, the receiver
+will accumulate as many bytes as the bad count field indicates and
+then use the error detection field to determine that the frame is
+bad. This is sometimes called a *framing error*. The receiver will
+then wait until it sees the next SYN character to start collecting the
+bytes that make up the next frame. It is therefore possible that a
+framing error will cause back-to-back frames to be incorrectly
+received.
 
 The Point-to-Point Protocol (PPP), which is commonly used to
 carry Internet Protocol packets over various sorts of point-to-point
@@ -96,34 +110,6 @@ that communication over the link is possible (e.g., when each optical
 receiver detects an incoming signal from the fiber to which it
 connects).
 
-### Byte-Counting Approach
-
-As every Computer Science 101 student knows, the alternative to
-detecting the end of a file with a sentinel value is to include the
-number of items in the file at the beginning of the file. The same is
-true in framing—the number of bytes contained in a frame can be
-included as a field in the frame header. DDCMP used this
-approach, as illustrated in [Figure 3](#ddcmp). In this
-example, the `COUNT` field specifies how many bytes are contained in
-the frame's body.
-
-<figure class="line">
-	<a id="ddcmp"></a>
-	<img src="figures/f02-09-9780123850591.png" width="400px"/>
-	<figcaption>DDCMP frame format.</figcaption>
-</figure>
-
-One danger with this approach is that a transmission error could corrupt
-the count field, in which case the end of the frame would not be
-correctly detected. (A similar problem exists with the sentinel-based
-approach if the ETX field becomes corrupted.) Should this happen, the
-receiver will accumulate as many bytes as the bad `COUNT` field
-indicates and then use the error detection field to determine that the
-frame is bad. This is sometimes called a *framing error*. The receiver
-will then wait until it sees the next SYN character to start collecting
-the bytes that make up the next frame. It is therefore possible that a
-framing error will cause back-to-back frames to be incorrectly received.
-
 ## Bit-Oriented Protocols (HDLC)
 
 Unlike byte-oriented protocols, a bit-oriented protocol is not
@@ -135,7 +121,7 @@ Link Control (SDLC) protocol developed by IBM is an example of a
 bit-oriented protocol; SDLC was later standardized by the ISO as the
 High-Level Data Link Control (HDLC) protocol. In the following
 discussion, we use HDLC as an example; its frame format is given in
-[Figure 4](#hdlc).
+[Figure 3](#hdlc).
 
 HDLC denotes both the beginning and the end of a frame with the
 distinguished bit sequence `01111110`. This sequence is also transmitted
@@ -214,7 +200,7 @@ bit stuffing is used, so that a frame's length does not depend on the
 data being sent. So the question to ask is "How does the receiver know
 where each frame starts and ends?" We consider this question for the
 lowest-speed SONET link, which is known as STS-1 and runs at 51.84 Mbps.
-An STS-1 frame is shown in [Figure 5](#sonet-frame). It is arranged as
+An STS-1 frame is shown in [Figure 4](#sonet-frame). It is arranged as
 9 rows of 90 bytes each, and the first 3 bytes of each row are overhead,
 with the rest being available for data that is being transmitted over
 the link. The first 2 bytes of the frame contain a special bit pattern,
@@ -296,7 +282,7 @@ Although it is accurate to view an STS-N signal as being used to
 multiplex N STS-1 frames, the payload from these STS-1 frames can be
 linked together to form a larger STS-N payload; such a link is denoted
 STS-Nc (for *concatenated*). One of the fields in the overhead is used
-for this purpose. [Figure 6](#sonet1) schematically depicts
+for this purpose. [Figure 5](#sonet1) schematically depicts
 concatenation in the case of three STS-1 frames being concatenated into
 a single STS-3c frame. The significance of a SONET link being designated
 as STS-3c rather than STS-3 is that, in the former case, the user of the
@@ -314,7 +300,7 @@ it assumes that the payload for each frame is completely contained
 within the frame. (Why wouldn't it be?) In fact, we should view the
 STS-1 frame just described as simply a placeholder for the frame, where
 the actual payload may *float* across frame boundaries. This situation
-is illustrated in [Figure 7](#sonet3). Here we see both the STS-1
+is illustrated in [Figure 6](#sonet3). Here we see both the STS-1
 payload floating across two STS-1 frames and the payload shifted some
 number of bytes to the right and, therefore, wrapped around. One of the
 fields in the frame overhead points to the beginning of the payload. The

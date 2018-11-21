@@ -198,10 +198,9 @@ Another way of thinking about LDPC is that the way it encodes bits
 onto signals includes enough redundancy (i.e., a form of FEC) to
 ensure the receiver is able able recover the original data even when
 signals overlap. In addition, BBUs also have the ability to
-increase/decrease the power they use to transmit on a given
-sub-channel, effectively allowing them to dynamically change cell
-size. This makes it possible to move UEs from one cell to another on
-the fly.
+increase/decrease the power they use to transmit, effectively allowing
+them to dynamically change cell size. This makes it possible to move
+UEs from one cell to another on the fly.
 
 Taken all together, this gives the RAN three degrees of freedom, which
 improves its ability to squeeze the most capacity out of the
