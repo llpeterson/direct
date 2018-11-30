@@ -5,10 +5,10 @@ connect to the Internet at home, at work, at school, and in many
 public spaces, most of us connect to the Internet over an *access* or
 *broadband* service that we buy from an ISP. This section
 describes two such technologies: *Passive Optical Networks* (PON),
-commonly referred to as fiber-to-the-home or fiber-to-the-premises,
-and *Cellular Networks* that connect our mobile devices. In both cases,
-the networks are multi-access (like Ethernet and Wi-Fi), but as we will
-see, their approach to mediating access is quite different.
+commonly referred to as fiber-to-the-home, and *Cellular Networks*
+that connect our mobile devices. In both cases, the networks are
+multi-access (like Ethernet and Wi-Fi), but as we will see, their
+approach to mediating access is quite different.
 
 To set a little more context, ISPs (often a Telco or Cable company)
 typically operate a national backbone, and connected to the periphery
