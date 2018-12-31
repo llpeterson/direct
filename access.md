@@ -11,7 +11,7 @@ multi-access (like Ethernet and Wi-Fi), but as we will see, their
 approach to mediating access is quite different.
 
 To set a little more context, ISPs (often a Telco or Cable company)
-typically operate a national backbone, and connected to the periphery
+often operate a national backbone, and connected to the periphery
 of that backbone are hundreds or thousands of edge sites, each of
 which serves a city or neighborhood. These edge sites are commonly
 called *Central Offices* in the Telco world and *Head Ends* in the
@@ -106,7 +106,7 @@ new/next-generation technologies, each of which occupies a different
 frequency band. The high-level summary is that traditional cellular
 technolgies range from 700-MHz to 2400-MHz, with new mid-spectrum
 allocations now happening at 6-GHz and millimeter-wave (mmWave)
-allocations openning in the 30 to 300-GHz band. One interesting
+allocations openning above 24-GHz. One interesting
 footnote is that there is also an unlicensed band at 3.5-GHz set aside
 in North America, called *Citizens Broadband Radio Service* (CBRS),
 that anyone with a cellular radio can use. This opens the door for
@@ -128,18 +128,20 @@ served by the EPC is often called a *Radio Access Network* (RAN).
 > long, we have decided to use the more generic and less cryptic BBU.
 
 [Figure 2](#ran) depicts one possible configuration of the end-to-end
-scenario, with two additional bits of detail. The EPC has multiple
-subcomponents, including an MME (Mobility Management Entity)
-and an S/PGW (Session/Packet Gateway); the former tracks and manages
-the movement of UEs throughout the RAN, and the latter processes and
-forwards packets between the RAN and the Internet. We say "one
-possible configuration" because the celluar standards allow wide
-variability in how many S/PGWs a given MME is responsible for, making
-is possible for a single MME to manage mobility across a wide
-geographic area that is served by multiple Central Offices. Finally,
-while not explicitly spelled out in [Figure 2](#ran), it is sometimes
-the case that the ISP's PON network is used to connect the remote BBUs
-back to the Central Office.
+scenario, with a few additional bits of detail. The EPC has multiple
+subcomponents, including an MME (Mobility Management Entity), an
+HSS (Home Subscriber Server), and an S/PGW (Session/Packet Gateway)
+pair; the first tracks and manages the movement of UEs throughout the
+RAN, the second is a database that contains subscriber-related
+information, and the Gateway pair processes and forwards packets
+between the RAN and the Internet (it forms the EPC's *user plane*).
+We say "one possible configuration" because the celluar standards
+allow wide variability in how many S/PGWs a given MME is responsible
+for, making is possible for a single MME to manage mobility across a
+wide geographic area that is served by multiple Central
+Offices. Finally, while not explicitly spelled out in
+[Figure 2](#ran), it is sometimes the case that the ISP's PON network
+is used to connect the remote BBUs back to the Central Office.
 
 <figure class="line">
 	<a id="ran"></a>
@@ -202,11 +204,12 @@ increase/decrease the power they use to transmit, effectively allowing
 them to dynamically change cell size. This makes it possible to move
 UEs from one cell to another on the fly.
 
-Taken all together, this gives the RAN three degrees of freedom, which
-improves its ability to squeeze the most capacity out of the
-limited spectrum. More importantly, this flexibility provides
-opportunities for ISPs to offer new services to their subscribers,
-supporting applications that range from bandwidth-hungry video and
-virutual/augmented reality to latency-sensitive autonomous cars and
-Internet-of-Things. The challenge of 5G is how to control and best
-take advantage of this flexibility.
+Taken all together, this gives the RAN three degrees of freedom
+(frequency, time, power), which improves its ability to squeeze the
+most capacity out of the limited spectrum. More importantly, this
+flexibility provides opportunities for ISPs to offer new services to
+their subscribers, supporting applications that range from
+bandwidth-hungry video and virutual/augmented reality to
+latency-sensitive autonomous cars and Internet-of-Things. The
+challenge of 5G is how to control and best take advantage of this
+flexibility.
