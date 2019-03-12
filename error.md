@@ -136,7 +136,7 @@ cksum(u_short *buf, int count)
             sum++;
         }
     }
-    return (sum & 0xFFFF);
+    return ~(sum & 0xFFFF);
 }
 ```
 
