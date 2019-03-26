@@ -326,7 +326,7 @@ algorithm caps $$n$$ in the above formula at 10.
 Ethernet has been the dominant local area network technology for over
 30 years. Today it is typically deployed point-to-point rather than
 tapping into a coax cable, it often runs at speeds of 1 or 10 Gbps
-rather than 10 Mbps, and it allow of jumbo packets with up to 9000
+rather than 10 Mbps, and it allows jumbo packets with up to 9000
 bytes of data rather than 1500 bytes. But, it remains backwards
 compatible with the original standard. This makes it worth saying a
 few words about why Ethernets have been so successful, so that we can
