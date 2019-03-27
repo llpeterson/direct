@@ -98,9 +98,6 @@ innovate.
 > To continue reading about the cloudification of the Internet, see
 > [Virtual Networks All the Way Down](../internetworking/trend.md).
 >
-> To bruch up on the basics, see
-> * Access Networks: [Section 2.8](access.md).
-> 
 > To learn more about the transformation taking place in access
 > networks, we recommend:
 > * [CORD: Central Office Re-architected as a Datacenter](https://wiki.opencord.org/display/CORD/Documentation?preview=/1278027/1966399/PETERSON_CORD.pdf). *IEEE
