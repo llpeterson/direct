@@ -11,8 +11,7 @@ complex hardware appliances (e.g., OLTs, BNGs, BBUs, EPCs). Not only
 have these devices historically been closed and proprietary, but the
 vendors that sell them have typically bundled a broad and diverse
 collection of functionality in each. As a consequence, they have
-become expensive to build, complicated to operate, and extremely slow
-to change.
+become expensive to build, complicated to operate, and slow to change.
 
 In response, network operators are actively transitioning from these
 purpose-built appliances to open software running on commodity
@@ -32,16 +31,15 @@ Factories, Internet-of-Things (IoT), Immersive User Interfaces—that
 benefit from low latency connectivity to end users, and the devices
 those users surround themselves with.
 
-This is all part of the growing trend, led by cloud providers, to move
-functionality out of the datacenter and closer to the network edge. It
-is fair to say that cloud providers and network operators are on a
-collision course. Cloud providers, in pursuit of
-low-latency/high-bandwidth applications, are moving out of the
-datacenter and towards the edge at the same time network operators are
-adopting the best practices and technologies of the cloud to the edge
-that already exists and implements the access network. It’s impossible
-to say how this will all play out over time; both industries have
-their particular advantages.
+This is all part of the growing trend to move functionality out of the
+datacenter and closer to the network edge, a trend that puts cloud
+providers and network operators on collision course. Cloud providers,
+in pursuit of low-latency/high-bandwidth applications, are moving out
+of the datacenter and towards the edge at the same time network
+operators are adopting the best practices and technologies of the
+cloud to the edge that already exists and implements the access
+network. It’s impossible to say how this will all play out over time;
+both industries have their particular advantages.
 
 On the one hand, cloud providers believe that by saturating metro
 areas with edge clusters and abstracting away the access network, they
@@ -54,9 +52,9 @@ on commodity hardware.
 On the other hand, network operators believe that by building the next
 generation access network using cloud technology, they will be able to
 co-locate edge applications in the access network. This scenario comes
-with three built-in advantages: an existing and widely distributed
-physical footprint, existing operational support, and native support
-for both mobility and guaranteed service.
+with built-in advantages: an existing and widely distributed physical
+footprint, existing operational support, and native support for both
+mobility and guaranteed service.
 
 While acknowledging both of these possibilities, there is a third
 outcome that is not only worth considering, but also worth working
