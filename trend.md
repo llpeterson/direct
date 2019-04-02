@@ -28,8 +28,20 @@ commodity hardware, but it is mostly driven by the need to accelerate
 the pace of innovation. Their goal is to enable new classes of edge
 services—e.g., Public Safety, Autonomous Vehicles, Automated
 Factories, Internet-of-Things (IoT), Immersive User Interfaces—that
-benefit from low latency connectivity to end users, and the devices
-those users surround themselves with.
+benefit from low latency connectivity to end users, and more
+importantly, to the increasing number of devices those users surround
+themselves with. This results in a multi-tier cloud similar to the one
+shown in [Figure 1](#cord).
+
+<figure class="line">
+	<a id="cord"></a>
+	<img src="figures/access/Slide3.png" width="600px"/>
+	<figcaption>Emerging multi-tier cloud includes datacenter-based
+	public clouds, IXP-hosted distributed clouds, and access-based
+	edge clouds, such as CORD. While there are on the order of 150
+	IXP-hosted clouds worldwide, we can expect there to be thousands
+	or even tens of thousands of edge clouds.</figcaption>
+</figure>
 
 This is all part of the growing trend to move functionality out of the
 datacenter and closer to the network edge, a trend that puts cloud
