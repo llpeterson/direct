@@ -21,7 +21,7 @@ types of links so that they can all be made reliable and useful to
 higher layers in the protocol stack. This chapter examines those
 strategies.
 
-<figure class="line">
+<figure>
 	<a id="isp-access"></a>
 	<img src="figures/f02-01-9780123850591.png" width="650px"/>
 	<figcaption>An end-user's view of the  Internet.</figcaption>
@@ -94,7 +94,7 @@ and gamma rays. [Figure 2](#spectrum) depicts the electromagnetic
 spectrum and shows which media are commonly used to carry which
 frequency bands.
 
-<figure class="line">
+<figure>
 	<a id="spectrum"></a>
 	<img src="figures/f02-02-9780123850591.png" width="600px"/>
 	<figcaption>Electromagnetic spectrum.</figcaption>
@@ -144,8 +144,8 @@ fiber.
 | G.Fast (copper) | up to 1 Gbps |
 | PON (optical) | up to 10 Gbps |
 
-{% center %} *Table 1. Common services available for the last-mile
-connection to your home.* {% endcenter %}
+<caption>Table 1. Common services available for the last-mile
+connection to your home.</caption>
 
 And of course there is also the *mobile* or *cellular* network (also 
 referred to as 4G, but which is rapidly evolving into 5G) that 

@@ -33,7 +33,7 @@ importantly, to the increasing number of devices those users surround
 themselves with. This results in a multi-tier cloud similar to the one
 shown in [Figure 1](#cord).
 
-<figure class="line">
+<figure>
 	<a id="cord"></a>
 	<img src="figures/access/Slide3.png" width="600px"/>
 	<figcaption>Emerging multi-tier cloud includes datacenter-based

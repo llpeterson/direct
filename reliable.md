@@ -46,7 +46,7 @@ sender waits for an acknowledgment before transmitting the next frame.
 If the acknowledgment does not arrive after a certain period of time,
 the sender times out and retransmits the original frame.
 
-<figure class="line">
+<figure>
 	<a id="ack-timeout"></a>
 	<img src="figures/f02-17-9780123850591.png" width="500px"/>
 	<figcaption>Timeline showing four different scenarios for the
@@ -95,7 +95,7 @@ frame 0, the receiver can determine that it is seeing a second copy of
 frame 0 rather than the first copy of frame 1 and therefore can ignore
 it (the receiver still acknowledges it, in case the first ACK was lost).
 
-<figure class="line">
+<figure>
 	<a id="stop-wait"></a>
 	<img src="figures/f02-18-9780123850591.png" width="250px"/>
 	<figcaption>Timeline for stop-and-wait with 1-bit sequence
@@ -135,7 +135,7 @@ pretty much the same moment that the ACK for the first frame arrives.
 The algorithm that allows us to do this is called *sliding window*, and
 an illustrative timeline is given in [Figure 3](#slide-win).
 
-<figure class="line">
+<figure>
 	<a id="slide-win"></a>
 	<img src="figures/f02-19-9780123850591.png" width="250px"/>
 	<figcaption>Timeline for the sliding window algorithm.</figcaption>
@@ -158,7 +158,7 @@ sender also maintains the following invariant:
 
 This situation is illustrated in [Figure 4](#sw-sender).
 
-<figure class="line">
+<figure>
 	<a id="sw-sender"></a>
 	<img src="figures/f02-20-9780123850591.png" width="400px"/>
 	<figcaption>Sliding window on sender.</figcaption>
@@ -183,7 +183,7 @@ received*. The receiver also maintains the following invariant:
 
 This situation is illustrated in [Figure 5](#sw-rcvr).
 
-<figure class="line">
+<figure>
 	<a id="sw-rcvr"></a>
 	<img src="figures/f02-21-9780123850591.png" width="400px"/>
 	<figcaption>Sliding window on receiver.</figcaption>

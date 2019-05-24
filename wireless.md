@@ -43,7 +43,7 @@ each other.
  | Typical use | Link a peripheral to a computer | Link a computer to a  wired base | Link mobile phone to a wired tower |
 | Wired technology analogy  | USB  | Ethernet   | PON |
 
-{% center %} *Table 1. Overview of Leading Wireless Technologies*  {% endcenter %}
+<caption>Table 1. Overview of Leading Wireless Technologies</caption>
 
 You may recall that bandwidth sometimes means the
 width of a frequency band in hertz and sometimes the data rate of a
@@ -112,7 +112,7 @@ code*, spread the signal across a frequency band that is n times wider
 than the frame would have otherwise required. [Figure 1](#chipping)
 gives an example of a 4-bit chipping sequence.
 
-<figure class="line">
+<figure>
 	<a id="chipping"></a>
 	<img src="figures/f02-27-9780123850591.png" width="500px"/>
 	<figcaption>Example 4-bit chipping sequence.</figcaption>
@@ -150,7 +150,7 @@ is in spite of the fact that radio waves emitted by one client node
 may well be received by other client nodes—the common base station
 model does not permit direct communication between the client nodes.
 
-<figure class="line">
+<figure>
 	<a id="wirelessBaseStation"></a>
 	<img src="figures/f02-28-9780123850591.png" width="500px"/>
 	<figcaption>A wireless network using a base station.</figcaption>
@@ -163,7 +163,7 @@ station. The second level is mobility within the range of a base, as is
 the case with Bluetooth. The third level is mobility between bases, as
 is the case with cell phones and Wi-Fi.
 
-<figure class="line">
+<figure>
 	<a id="wirelessMesh"></a>
 	<img src="figures/f02-29-9780123850591.png" width="500px"/>
 	<figcaption>A wireless ad hoc or mesh network.</figcaption>
@@ -281,7 +281,7 @@ because that node may be too far away or blocked by an obstacle. This
 situation is a bit more complex than it first appears, as the following
 discussion will illustrate.
 
-<figure class="line">
+<figure>
 	<a id="wifiHiddenNode"></a>
 	<img src="figures/f02-30-9780123850591.png" width="400px"/>
 	<figcaption>The hidden node problem. Although A and C are hidden
@@ -298,7 +298,7 @@ other at B, but unlike an Ethernet, neither A nor C is aware of this
 collision. A and C are said to be *hidden nodes* with respect to each
 other.
 
-<figure class="line">
+<figure>
 	<a id="wifiExposedNode"></a>
 	<img src="figures/f02-31-9780123850591.png" width="325px"/>
 	<figcaption>The exposed node problem. Although B and C are exposed
@@ -379,7 +379,7 @@ nodes in some region. Each access point operates on some channel in
 the appropriate frequency range, and each AP will typically be on a
 different channel than its neighbors.
 
-<figure class="line">
+<figure>
 	<a id="wireless2"></a>
 	<img src="figures/f02-32-9780123850591.png" width="500px"/>
 	<figcaption>Access points connected to a distribution system.</figcaption>
@@ -421,7 +421,7 @@ node moving away from it. Whenever a node acquires a new AP, the new AP
 notifies the old AP of the change (this happens in step 4) via the
 distribution system.
 
-<figure class="line">
+<figure>
 	<a id="wireless3"></a>
 	<img src="figures/f02-33-9780123850591.png" width="500px"/>
 	<figcaption>Node mobility.</figcaption>
@@ -453,7 +453,7 @@ an RTS or CTS frame, or is being used by the scanning algorithm, and a
 pair of 1-bit fields—called `ToDS` and `FromDS`—that are described
 below.
 
-<figure class="line">
+<figure>
 	<a id="802.11-format"></a>
 	<img src="figures/f02-34-9780123850591.png" width="550px"/>
 	<figcaption>802.11 frame format.</figcaption>
@@ -540,7 +540,7 @@ between the master and a slave; the slaves do not communicate directly
 with each other. Because slaves have a simpler role, their Bluetooth
 hardware and software can be simpler and cheaper.
 
-<figure class="line">
+<figure>
 	<a id="wirelessBluetoothPiconet"></a>
 	<img src="figures/f02-35-9780123850591.png" width="400px"/>
 	<figcaption>A Bluetooth piconet.</figcaption>

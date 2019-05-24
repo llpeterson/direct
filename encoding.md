@@ -20,7 +20,7 @@ bits at the receiving node. Thus, as illustrated in
 [Figure 1](#node-link-1), signals travel over a link between two
 signalling components, and bits flow between network adaptors.
 
-<figure class="line">
+<figure>
 	<a id="node-link-1"></a>
 	<img src="figures/f02-03-9780123850591.png" width="500px"/>
 	<figcaption>Signals travel between signalling components; bits
@@ -35,7 +35,7 @@ For example, [Figure 2](#nrz) schematically depicts the
 NRZ-encoded signal (bottom) that corresponds to the transmission of a
 particular sequence of bits (top).
 
-<figure class="line">
+<figure>
 	<a id="nrz"></a>
 	<img src="figures/f02-04-9780123850591.png" width="400px"/>
 	<figcaption>NRZ encoding of a bit stream.</figcaption>
@@ -93,7 +93,7 @@ encoded with the first half of the signal equal to the last half of
 the previous bit's signal and a 0 is encoded with the first half of
 the signal opposite to the last half of the previous bit's signal.)
 
-<figure class="line">
+<figure>
 	<a id="encode-all"></a>
 	<img src="figures/f02-05-9780123850591.png" width="400px"/>
 	<figcaption>Different encoding strategies.</figcaption>
@@ -154,7 +154,7 @@ consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.
 | 1110     | 11100 |
 | 1111     | 11101 |
 
-{% center %} *Table 1. 4B/5B encoding.* {% endcenter %}
+<caption>Table 1. 4B/5B encoding.</caption>
 
 [Table 1](#4b5b) gives the 5-bit codes that correspond to
 each of the 16 possible 4-bit data symbols. Notice that since 5 bits

@@ -56,7 +56,7 @@ host was transmitting. It also received incoming signals. The
 transceiver, in turn, connected to an Ethernet adaptor, which was
 plugged into the host. This configuration is shown in [Figure 1](#tap).
 
-<figure class="line">
+<figure>
 	<a id="tap"></a>
 	<img src="figures/f02-22-9780123850591.png" width="300px"/>
 	<figcaption>Ethernet transceiver and adaptor.</figcaption>
@@ -72,7 +72,7 @@ of hosts supports a configuration similar to the one illustrated
 in [Figure 2](#net-repeat)—that is, a segment running down
 the spine of a building with a segment on each floor.
 
-<figure class="line">
+<figure>
 	<a id="net-repeat"></a>
 	<img src="figures/f02-23-9780123850591.png" width="500px"/>
 	<figcaption>Ethernet repeater.</figcaption>
@@ -95,7 +95,7 @@ original Ethernet specifications used the Manchester encoding scheme
 described in an earlier section, while 4B/5B encoding or the similar
 8B/10B scheme is used today on higher speed Ethernets.
 
-<figure class="line">
+<figure>
 	<a id="hub"></a>
 	<img src="figures/f02-24-9780123850591.png" width="400px"/>
 	<figcaption>Ethernet hub.</figcaption>
@@ -140,7 +140,7 @@ the host's perspective, an Ethernet frame has a 14-byte header: two
 the preamble and CRC before transmitting, and the receiving adaptor
 removes them.
 
-<figure class="line">
+<figure>
 	<a id="enet-format"></a>
 	<img src="figures/f02-25-9780123850591.png" width="400px"/>
 	<figcaption>Ethernet frame format.</figcaption>
@@ -270,7 +270,7 @@ farther apart two nodes are, the longer it takes for a frame sent by one
 to reach the other, and the network is vulnerable to a collision
 during this time.
 
-<figure class="line">
+<figure>
 	<a id="worst"></a>
 	<img src="figures/f02-26-9780123850591.png" width="350px"/>
 	<figcaption>Worst-case scenario: (a) A sends a frame at time t;

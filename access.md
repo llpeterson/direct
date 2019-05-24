@@ -51,7 +51,7 @@ of billing. As its name implies, the BNG is effectively the gateway
 between the access network (everything to the left of the BNG) and the
 Internet (everything to the right of the BNG).
 
-<figure class="line">
+<figure>
 	<a id="pon"></a>
 	<img src="figures/access/Slide1.png" width="600px"/>
 	<figcaption>An example PON that connects OLTs in the Central Office 
@@ -143,7 +143,7 @@ Offices. Finally, while not explicitly spelled out in
 [Figure 2](#ran), it is sometimes the case that the ISP's PON network
 is used to connect the remote BBUs back to the Central Office.
 
-<figure class="line">
+<figure>
 	<a id="ran"></a>
 	<img src="figures/access/Slide2.png" width="600px"/>
 	<figcaption>A Radio Access Network (RAN) connecting a set of cellular devices

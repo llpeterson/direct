@@ -297,7 +297,7 @@ corrupted message; with some codes, it may be possible to *correct* a
 small error (e.g., if the error affected only one bit). A code that
 enables error correction is called an *error-correcting code* (ECC).
 
-<figure class="line">
+<figure>
 	<a id="crcalc"></a>
 	<img src="figures/f02-15-9780123850591.png" width="400px"/>
 	<figcaption>CRC calculation using polynomial long division.</figcaption>
@@ -386,7 +386,7 @@ then put an XOR gate in front of bit $$n$$ if there is a term $$x^n$$ in the
 generator polynomial. Thus, we see an XOR gate in front of positions 0
 and 2 for the generator $$x^3 + x^2 + x^0$$.
 
-<figure class="line">
+<figure>
 	<a id="crc-hard"></a>
 	<img src="figures/f02-16-9780123850591.png" width="350px"/>
 	<figcaption>CRC calculation using shift register.</figcaption>

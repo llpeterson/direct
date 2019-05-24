@@ -77,7 +77,7 @@ carry Internet Protocol packets over various sorts of point-to-point
 links, uses sentinels and character stuffing. The format for a PPP
 frame is given in [Figure 2](#ppp).
 
-<figure class="line">
+<figure>
 	<a id="ppp"></a>
 	<img src="figures/f02-08-9780123850591.png" width="500px"/>
 	<figcaption>PPP frame format.</figcaption>
@@ -132,7 +132,7 @@ appear anywhere in the body of the frame—in fact, the bits `01111110`
 might cross byte boundaries—bit-oriented protocols use the analog of
 the DLE character, a technique known as *bit stuffing*.
 
-<figure class="line">
+<figure>
 	<a id="hdlc"></a>
 	<img src="figures/f02-10-9780123850591.png" width="400px"/>
 	<figcaption>HDLC frame format.</figcaption>
@@ -213,7 +213,7 @@ special bit pattern consistently, hoping to see it appearing once every
 special pattern turns up in the right place enough times, the receiver
 concludes that it is in sync and can then interpret the frame correctly.
 
-<figure class="line">
+<figure>
 	<a id="sonet-frame"></a>
 	<img src="figures/f02-11-9780123850591.png" width="500px"/>
 	<figcaption>A SONET STS-1 frame.</figcaption>
@@ -271,7 +271,7 @@ frame are evenly paced; that is, bytes show up at the receiver at a
 smooth 51 Mbps, rather than all bunched up during one particular
 1/N$$^{th}$$ of the 125-$$\mu$$s interval.
 
-<figure class="line">
+<figure>
 	<a id="sonet1"></a>
 	<img src="figures/f02-12-9780123850591.png" width="350px"/>
 	<figcaption>Three STS-1 frames multiplexed onto one STS-3c
@@ -289,7 +289,7 @@ as STS-3c rather than STS-3 is that, in the former case, the user of the
 link can view it as a single 155.25-Mbps pipe, whereas an STS-3 should
 really be viewed as three 51.84-Mbps links that happen to share a fiber.
 
-<figure class="line">
+<figure>
 	<a id="sonet3"></a>
 	<img src="figures/f02-13-9780123850591.png" width="450px"/>
 	<figcaption>SONET frames out of phase.</figcaption>
