@@ -154,7 +154,9 @@ consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.
 | 1110     | 11100 |
 | 1111     | 11101 |
 
+<table>
 <caption>Table 1. 4B/5B encoding.</caption>
+</table>
 
 [Table 1](#4b5b) gives the 5-bit codes that correspond to
 each of the 16 possible 4-bit data symbols. Notice that since 5 bits

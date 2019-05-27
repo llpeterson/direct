@@ -43,7 +43,9 @@ each other.
  | Typical use | Link a peripheral to a computer | Link a computer to a  wired base | Link mobile phone to a wired tower |
 | Wired technology analogy  | USB  | Ethernet   | PON |
 
+<table>
 <caption>Table 1. Overview of Leading Wireless Technologies</caption>
+</table>
 
 You may recall that bandwidth sometimes means the
 width of a frequency band in hertz and sometimes the data rate of a

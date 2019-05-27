@@ -144,8 +144,10 @@ fiber.
 | G.Fast (copper) | up to 1 Gbps |
 | PON (optical) | up to 10 Gbps |
 
+<table>
 <caption>Table 1. Common services available for the last-mile
 connection to your home.</caption>
+</table>
 
 And of course there is also the *mobile* or *cellular* network (also 
 referred to as 4G, but which is rapidly evolving into 5G) that 
