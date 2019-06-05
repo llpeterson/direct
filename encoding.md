@@ -133,7 +133,10 @@ then transmitted using the NRZI encoding, which explains why the code is
 only concerned about consecutive 0s—NRZI already solves the problem of
 consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.
 
+<table>
 <a id="4b5b"></a>
+<tabcaption>4B/5B encoding.</tabcaption>
+</table>
 
 | 4-bit Data Symbol  | 5-bit Code   |
 |:-----:|:-------:|
@@ -153,10 +156,6 @@ consecutive 1s. Note that the 4B/5B encoding results in 80% efficiency.
 | 1101     | 11011 |
 | 1110     | 11100 |
 | 1111     | 11101 |
-
-<table>
-<caption>Table 1. 4B/5B encoding.</caption>
-</table>
 
 [Table 1](#4b5b) gives the 5-bit codes that correspond to
 each of the 16 possible 4-bit data symbols. Notice that since 5 bits

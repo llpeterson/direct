@@ -34,7 +34,10 @@ context of ISP access services. [Table 1](#wirelessTechnologiesTable)
 gives an overview of these technologies and how they compare to
 each other.
 
+<table>
 <a id="wirelessTechnologiesTable"></a>
+<tabcaption>Overview of Leading Wireless Technologies</tabcaption>
+</table>
 
 |        | Bluetooth (802.15.1)  |  Wi-Fi (802.11)  |  4G Cellular   | 
 |----| -----------------|-------------|-----------|
@@ -42,10 +45,6 @@ each other.
 | Typical data rate    | 2 Mbps (shared) | 54 Mbps (shared) | 1-5 Mbps  (per connection) |
  | Typical use | Link a peripheral to a computer | Link a computer to a  wired base | Link mobile phone to a wired tower |
 | Wired technology analogy  | USB  | Ethernet   | PON |
-
-<table>
-<caption>Table 1. Overview of Leading Wireless Technologies</caption>
-</table>
 
 You may recall that bandwidth sometimes means the
 width of a frequency band in hertz and sometimes the data rate of a
