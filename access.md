@@ -32,7 +32,7 @@ broadband to homes and businesses. PON adopts a point-to-multipoint
 design, which means the network is structured as a tree, with a single
 point starting in the ISP's network and then fanning out to reach up
 to 1024 homes. PON gets its name from the fact that the
-splitters are passive: they forward optical signls downstream and
+splitters are passive: they forward optical signals downstream and
 upstream without actively storing-and-forwarding frames. In this way,
 they are the optical variant of repeaters used in the classic Ethernet.
 Framing then happens at the source in the ISP's premises, in a device
@@ -61,9 +61,9 @@ Internet (everything to the right of the BNG).
 Because the splitters are passive, PON has to implement some form of
 multi-access protocol. The approach it adopts can be summarized as
 follows. First, upstream and downstream traffic are transmitted on two
-diffrent optical wavelengths, so they are completely independent of
+different optical wavelengths, so they are completely independent of
 each other. Downstream traffic starts at the OLT and the signal is
-propogated down every link in the PON. As a consequence, every frame
+propagated down every link in the PON. As a consequence, every frame
 reaches every ONU. This device then looks at a unique identifier in
 the individual frames sent over the wavelength, and either keeps the
 frame (if the identifier is for it) or drops it (if not). Encryption is
@@ -104,9 +104,9 @@ the world, and are complicated by the fact that ISPs often
 simultaneously support both old/legacy technologies and
 new/next-generation technologies, each of which occupies a different
 frequency band. The high-level summary is that traditional cellular
-technolgies range from 700-MHz to 2400-MHz, with new mid-spectrum
+technologies range from 700-MHz to 2400-MHz, with new mid-spectrum
 allocations now happening at 6-GHz and millimeter-wave (mmWave)
-allocations openning above 24-GHz. One interesting
+allocations opening above 24-GHz. One interesting
 footnote is that there is also an unlicensed band at 3.5-GHz set aside
 in North America, called *Citizens Broadband Radio Service* (CBRS),
 that anyone with a cellular radio can use. This opens the door for
@@ -135,7 +135,7 @@ pair; the first tracks and manages the movement of UEs throughout the
 RAN, the second is a database that contains subscriber-related
 information, and the Gateway pair processes and forwards packets
 between the RAN and the Internet (it forms the EPC's *user plane*).
-We say "one possible configuration" because the celluar standards
+We say "one possible configuration" because the cellular standards
 allow wide variability in how many S/PGWs a given MME is responsible
 for, making is possible for a single MME to manage mobility across a
 wide geographic area that is served by multiple Central
@@ -187,18 +187,18 @@ Evolution*. The main takeaway is that while standards are published as
 a sequence of discrete releases, the industry as a whole is now on a
 fairly well-defined evolutionary path known as LTE.
 
-The main innovaition of LTE's air interface for 5G is the flexibility
+The main innovation of LTE's air interface for 5G is the flexibility
 it provides. 5G uses a hybrid multiplexing scheme called OFDMA
 (Orthogonal Frequency Division Multiple Access), which intuitively
-combines frequence-division multiplexing (carving the frequency band
+combines frequency-division multiplexing (carving the frequency band
 into multiple overlapping sub-channels) and time-division multiplexing
 (allocating one or more sub-channels to a given UE for a certain slot
 of time). OFDMA also uses a coding scheme known as LDPC (Low Density
 Parity Check) that ensures the probability of inter-symbol
-interference for transimssions on adjacent sub-channels is zero.
+interference for transmissions on adjacent sub-channels is zero.
 Another way of thinking about LDPC is that the way it encodes bits
 onto signals includes enough redundancy (i.e., a form of FEC) to
-ensure the receiver is able able recover the original data even when
+ensure the receiver is able recover the original data even when
 signals overlap. In addition, BBUs also have the ability to
 increase/decrease the power they use to transmit, effectively allowing
 them to dynamically change cell size. This makes it possible to move
@@ -209,7 +209,7 @@ Taken all together, this gives the RAN three degrees of freedom
 most capacity out of the limited spectrum. More importantly, this
 flexibility provides opportunities for ISPs to offer new services to
 their subscribers, supporting applications that range from
-bandwidth-hungry video and virutual/augmented reality to
+bandwidth-hungry video and virtual/augmented reality to
 latency-sensitive autonomous cars and Internet-of-Things. The
 challenge of 5G is how to control and best take advantage of this
 flexibility.

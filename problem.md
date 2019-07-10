@@ -47,7 +47,7 @@ reliable delivery, and access mediation—can be discussed in the
 abstract, they are very real problems that are addressed in different
 ways by different networking technologies. This chapter considers these
 issues in the context of specific network technologies: point-to-point
-fiber links (for which SONET is the prevelant example); Carrier Sense
+fiber links (for which SONET is the prevalent example); Carrier Sense
 Multiple Access (CSMA) networks (of which Ethernet is the most famous
 example); wireless networks (for which 802.11 is the most
 widespread standard); fiber-to-the home (for which PON is the dominant

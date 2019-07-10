@@ -50,7 +50,7 @@ bits.
 Fortunately, we can do a lot better than this simple scheme. In general,
 we can provide quite strong error detection capability while sending
 only $$k$$ redundant bits for an $$n$$-bit message, where $$k$$ is
-much smaller than $$n$$. On an
+much smaller than $$n$$. On an Ethernet,
 for example, a frame carrying up to 12,000 bits (1500 bytes) of data
 requires only a 32-bit CRC code, or as it is commonly expressed, uses
 CRC-32. Such a code will catch the overwhelming majority of errors, as
@@ -99,20 +99,20 @@ occurred.
 You can imagine many different variations on the basic idea of a
 checksum. The exact scheme used by the Internet protocols works as
 follows. Consider the data being checksummed as a sequence of 16-bit
-integers. Add them together using 16-bit ones complement arithmetic
-(explained below) and then take the ones complement of the result. That
+integers. Add them together using 16-bit ones' complement arithmetic
+(explained below) and then take the ones' complement of the result. That
 16-bit number is the checksum.
 
-In ones complement arithmetic, a negative integer (-x) is represented
+In ones' complement arithmetic, a negative integer (-x) is represented
 as the complement of x; that is, each bit of x is inverted. When
-adding numbers in ones complement arithmetic, a carryout from the most
+adding numbers in ones' complement arithmetic, a carryout from the most
 bit needs to be added to the result. Consider, for example, the addition
-of -5 and -3 in ones complement arithmetic on 4-bit integers: +5
+of -5 and -3 in ones' complement arithmetic on 4-bit integers: +5
 is 0101, so -5 is 1010; +3 is 0011, so -3 is 1100. If we add 1010
-and 1100, ignoring the carry, we get 0110. In ones complement
+and 1100, ignoring the carry, we get 0110. In ones' complement
 arithmetic, the fact that this operation caused a carry from the most
 significant bit causes us to increment the result, giving 0111, which is
-the ones complement representation of -8 (obtained by inverting the
+the ones' complement representation of -8 (obtained by inverting the
 bits in 1000), as we would expect.
 
 The following routine gives a straightforward implementation of the
@@ -140,8 +140,8 @@ cksum(u_short *buf, int count)
 }
 ```
 
-This code ensures that the calculation uses ones complement arithmetic
-rather than the twos complement that is used in most machines. Note the
+This code ensures that the calculation uses ones' complement arithmetic
+rather than the twos' complement that is used in most machines. Note the
 `if` statement inside the `while` loop. If there is a carry into the top
 16 bits of `sum`, then we increment `sum` just as in the previous
 example.

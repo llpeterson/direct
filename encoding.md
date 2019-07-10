@@ -57,7 +57,7 @@ significant change in the signal.
 
 The second problem is that frequent transitions from high to low and
 *vice versa* are necessary to enable *clock recovery*. Intuitively, the
-clock recovery problem is that both the encoding and the decoding
+clock recovery problem is that both the encoding and decoding
 processes are driven by a clock—every clock cycle the sender transmits
 a bit and the receiver recovers a bit. The sender's and the receiver's
 clocks have to be precisely synchronized in order for the receiver to

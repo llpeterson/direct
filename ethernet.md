@@ -92,8 +92,8 @@ repeaters and hubs forward the signal on all outgoing segments.
 Terminators attached to the end of each segment absorb the signal and
 keep it from bouncing back and interfering with trailing signals. The
 original Ethernet specifications used the Manchester encoding scheme
-described in an earlier section, while 4B/5B encoding or the similar
-8B/10B scheme is used today on higher speed Ethernets.
+described in an earlier section, while 4B/5B encoding (or the similar
+8B/10B) scheme is used today on higher speed Ethernets.
 
 <figure>
 	<a id="hub"></a>
@@ -343,7 +343,7 @@ any switch-based approach that aspired to displace it required
 additional investment in infrastructure (the switches), on top of the
 cost of each adaptor. The switch-based variant of Ethernet did
 eventually succeed in replacing multi-access Ethernet, but this is in
-part because it could be delpoyed incrementally—with some hosts
+part because it could be deployed incrementally—with some hosts
 connected by point-to-point links to switches while others remained
 tapped into coax—all the while retaining the simplicity of network
 administration.

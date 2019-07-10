@@ -29,7 +29,7 @@ differences include which part of the electromagnetic spectrum they use
 (including whether it requires a license) and how much power they
 consume. In this section, we discuss two prominent wireless
 technologies: Wi-Fi (more formally known as 802.11),
-and Bluetooth. The next secton discusses celluar networks in the
+and Bluetooth. The next section discusses cellular networks in the
 context of ISP access services. [Table 1](#wirelessTechnologiesTable)
 gives an overview of these technologies and how they compare to
 each other.
@@ -246,7 +246,7 @@ rates as well; for example, 802.11a allows for bit rates of 6, 9, 12,
 18, 24, 36, 48, and 54 Mbps. At lower bit rates, it is easier to decode
 transmitted signals in the presence of noise. Different modulation
 schemes are used to achieve the various bit rates; in addition, the
-amount of redundant informationin the form of error-correcting codes is
+amount of redundant information in the form of error-correcting codes is
 varied. More
 redundant information means higher resilience to bit errors at the cost
 of lowering the effective data rate (since more of the transmitted bits

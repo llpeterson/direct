@@ -13,7 +13,7 @@ the spectrum, a typical user encounters links mostly as a way to
 connect a computer to the existing Internet. Sometimes this link will
 be a wireless (Wi-Fi) link in a coffee shop; sometimes it's an Ethernet
 link in an office building or university; sometimes it is a smartphone
-connected to a celluar network; for an increasingly large slice of the
+connected to a cellular network; for an increasingly large slice of the
 population it is a fiber optic link provided by an ISP; and many
 others use some sort of copper wire or cable to connect. Fortunately,
 there are many common strategies used on these seemingly disparate
@@ -124,7 +124,7 @@ economic and deployment issues tend to influence where different link
 types are found. Most consumers interact with the Internet either
 through wireless networks (which they encounter in coffee shops,
 airports, universities, etc.) or through so-called *last-mile* links
-(or alterntively, *access networks*) provided by an ISP, as
+(or alternatively, *access networks*) provided by an ISP, as
 illustrated in [Figure 1](#isp-access). These link types are summarized
 in [Table 1](#home). They typically are chosen because they are
 cost-effective ways of reaching millions of consumers. DSL

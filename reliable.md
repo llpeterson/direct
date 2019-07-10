@@ -55,7 +55,7 @@ the sender times out and retransmits the original frame.
 	(d) the timeout fires too soon.</figcaption>
 </figure>
 
-[Figure 1](#ack-timeout) illustrates timeslines for four
+[Figure 1](#ack-timeout) illustrates timelines for four
 different scenarios that result from this basic algorithm. 
 The sending side is represented on the left, the
 receiving side is depicted on the right, and time flows from top to
@@ -558,7 +558,7 @@ swpInWindow(SwpSeqno seqno, SwpSeqno min, SwpSeqno max)
 ### Frame Order and Flow Control
 
 The sliding window protocol is perhaps the best known algorithm in
-computer networking. What is easily confusing about the algorithm,
+computer networking. What is easily confused about the algorithm,
 however, is that it can be used to serve three different roles. The
 first role is the one we have been concentrating on in this section—to
 reliably deliver frames across an unreliable link. (In general, the

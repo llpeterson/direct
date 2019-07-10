@@ -34,7 +34,7 @@ terminals to mainframes—is to view each frame as a collection of bytes
 *byte-oriented* protocols are the Binary Synchronous Communication
 (BISYNC) protocol developed by IBM in the late 1960s, and the Digital
 Data Communication Message Protocol (DDCMP) used in Digital Equipment
-Corporation's DECNET. (Once upon a time, large computer companaies
+Corporation's DECNET. (Once upon a time, large computer companies
 like IBM and DEC also built private networks for their customers.)
 The widely used Point-to-Point Protocol (PPP) is a recent example of
 this approach.
