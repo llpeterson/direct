@@ -45,7 +45,7 @@ shown in [Figure 1](#cord).
 
 This is all part of the growing trend to move functionality out of the
 datacenter and closer to the network edge, a trend that puts cloud
-providers and network operators on collision course. Cloud providers,
+providers and network operators on a collision course. Cloud providers,
 in pursuit of low-latency/high-bandwidth applications, are moving out
 of the datacenter and towards the edge at the same time network
 operators are adopting the best practices and technologies of the
