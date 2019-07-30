@@ -116,5 +116,5 @@ innovate.
 > networks, we recommend:
 > * [CORD: Central Office Re-architected as a Datacenter](https://wiki.opencord.org/display/CORD/Documentation?preview=/1278027/1966399/PETERSON_CORD.pdf). *IEEE
 > Communications*, October 2016.
-> * [Democratizing the Network Edge](trend.md). *SIGCOMM CCR*, April 2019.
+> * [Democratizing the Network Edge](https://ccronline.sigcomm.org/2019/democratizing-the-network-edge/). *SIGCOMM CCR*, April 2019.
 
