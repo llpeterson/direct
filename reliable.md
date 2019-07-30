@@ -118,7 +118,11 @@ or about one-eighth of the link's capacity. To use the link fully, then,
 we'd like the sender to be able to transmit up to eight frames before
 having to wait for an acknowledgment.
 
+{% if output.name == "ebook" %}
+> **Key Takeaway**
+{% else %}
 > [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+{% endif %}
 > The significance of the delay $$\times$$ bandwidth product is that it
 > represents the amount of data that could be in transit. We would like to
 > be able to send this much data without waiting for the first
@@ -593,7 +597,11 @@ space it has. As in the case of ordered delivery, we need to make sure
 that flow control is necessary at the link level before incorporating it
 into the sliding window protocol.
 
+{% if output.name == "ebook" %}
+> **Key Takeaway**
+{% else %}
 > [!Note|style:flat|label:Key Takeaway|iconVisibility:hidden]
+{% endif %}
 > One important concept to take away from this discussion is the system
 > design principle we call *separation of concerns*. That is, you must be
 > careful to distinguish between different functions that are sometimes

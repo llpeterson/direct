@@ -104,7 +104,11 @@ environments, but also has the potential to open the access network to
 developers that instinctively go where there are opportunities to
 innovate.
 
+{% if output.name == "ebook" %}
+> **Broader Perspective**
+{% else %}
 > [!NOTE|label:Broader Perspective]
+{% endif %}
 > To continue reading about the cloudification of the Internet, see
 > [Virtual Networks All the Way Down](../internetworking/trend.md).
 >
