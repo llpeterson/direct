@@ -106,14 +106,14 @@ integers. Add them together using 16-bit ones' complement arithmetic
 In ones' complement arithmetic, a negative integer (-x) is represented
 as the complement of x; that is, each bit of x is inverted. When
 adding numbers in ones' complement arithmetic, a carryout from the most
-bit needs to be added to the result. Consider, for example, the addition
-of -5 and -3 in ones' complement arithmetic on 4-bit integers: +5
-is 0101, so -5 is 1010; +3 is 0011, so -3 is 1100. If we add 1010
-and 1100, ignoring the carry, we get 0110. In ones' complement
-arithmetic, the fact that this operation caused a carry from the most
-significant bit causes us to increment the result, giving 0111, which is
-the ones' complement representation of -8 (obtained by inverting the
-bits in 1000), as we would expect.
+significant bit needs to be added to the result. Consider, for
+example, the addition of -5 and -3 in ones' complement arithmetic on
+4-bit integers: +5 is 0101, so -5 is 1010; +3 is 0011, so -3
+is 1100. If we add 1010 and 1100, ignoring the carry, we get 0110. In
+ones' complement arithmetic, the fact that this operation caused a
+carry from the most significant bit causes us to increment the result,
+giving 0111, which is the ones' complement representation of -8
+(obtained by inverting the bits in 1000), as we would expect.
 
 The following routine gives a straightforward implementation of the
 Internet's checksum algorithm. The `count` argument gives the length of

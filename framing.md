@@ -96,7 +96,8 @@ usually contain default values and so are uninteresting. The (Protocol)
 field is used for demultiplexing; it identifies the high-level protocol,
 such as IP. The frame payload size can be negotiated, but it is
 1500 bytes by default. The `Checksum` field is either 2 (by default)
-or 4 bytes long.
+or 4 bytes long. Note that despite its common name, this field is
+actually a CRC and not a checksum (as described in the next section).
 
 The PPP frame format is unusual in that several of the field sizes are
 negotiated rather than fixed. This negotiation is conducted by a
@@ -244,7 +245,7 @@ signal with enough transitions to enable clock recovery.
 SONET supports the multiplexing of multiple low-speed links in the
 following way. A given SONET link runs at one of a finite set of
 possible rates, ranging from 51.84 Mbps (STS-1) to 39,813,120 Mbps
-(STS-786). Note that all of these rates are integer multiples of STS-1.
+(STS-768). Note that all of these rates are integer multiples of STS-1.
 The significance for framing is that a single SONET frame can contain
 subframes for multiple lower-rate channels. A second related feature
 is that each frame is 125 $$\mu$$s long. This means that at STS-1
