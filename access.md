@@ -91,8 +91,7 @@ now starting to be deployed.
 
 While cellular telephone technology had its roots in analog voice 
 communication, data services based on cellular standards are now
-the norm, thanks in no small part to the increasing capabilities
-of smartphones. Like Wi-Fi, cellular networks transmit data at certain
+the norm. Like Wi-Fi, cellular networks transmit data at certain
 bandwidths in the radio spectrum. Unlike Wi-Fi, which permits anyone
 to use a channel at either 2.4 or 5 GHz (all you have to do is set up a
 base station, as many of us do in our homes), exclusive use of various
@@ -112,6 +111,14 @@ in North America, called *Citizens Broadband Radio Service* (CBRS),
 that anyone with a cellular radio can use. This opens the door for
 setting up private cellular networks.
 
+> To be more precise, the CBRS band allows three tiers of users to
+> share the spectrum: first right of use goes to the original owners
+> of this spectrum, naval radars and satellite ground stations;
+> followed by priority users who receive this right over 10MHz bands
+> for three years via regional auctions; and finally the rest of the
+> population, who can access and utilize a portion of this band as
+> long as they first check with a central database of registered users.
+
 Like 802.11, cellular technology relies on the use of base stations
 that are connected to a wired network. In the case of the cellular
 network, the base stations are often called *Broadband Base Units*
@@ -120,12 +127,12 @@ as *User Equipment* (UE), and the set of BBUs are anchored at an *Evolved
 Packet Core* (EPC) hosted in a Central Office. The wireless network
 served by the EPC is often called a *Radio Access Network* (RAN).
 
-> BBUs currently go by another name—Evolved NodeB, often abbreviated
+> BBUs officially go by another name—Evolved NodeB, often abbreviated
 > eNodeB or eNB—where NodeB is what the radio unit was called in an
 > early incarnation of cellular networks (and has since evolved).
 > Given that the cellular world continues to evolve at a rapid pace
-> and there's good reason to believe eNB will be out-of-date before
-> long, we have decided to use the more generic and less cryptic BBU.
+> and eNB's are soon to be upgraded to gNB's, we have decided to use
+> the more generic and less cryptic BBU.
 
 [Figure 2](#ran) depicts one possible configuration of the end-to-end
 scenario, with a few additional bits of detail. The EPC has multiple
@@ -146,7 +153,7 @@ is used to connect the remote BBUs back to the Central Office.
 <figure>
 	<a id="ran"></a>
 	<img src="figures/access/Slide2.png" width="600px"/>
-	<figcaption>A Radio Access Network (RAN) connecting a set of cellular devices
+	<figcaption>A Radio Access Network (RAN) connecting a set of cellular devices 
 	(UEs) to an Evolved Packet Core (EPC) hosted in a Central Office.</figcaption>
 </figure>
 
@@ -184,32 +191,114 @@ standard. Release 15, which is now published, is considered the
 demarcation point between 4G and 5G. By another name, this sequence
 of releases and generations is called LTE, which stands for *Long-Term
 Evolution*. The main takeaway is that while standards are published as
-a sequence of discrete releases, the industry as a whole is now on a
-fairly well-defined evolutionary path known as LTE.
+a sequence of discrete releases, the industry as a whole has been on a
+fairly well-defined evolutionary path known as LTE. This section uses
+LTE terminology, but highlights the changes coming with 5G when
+appropriate.
 
-The main innovation of LTE's air interface for 5G is the flexibility
-it provides. 5G uses a hybrid multiplexing scheme called OFDMA
-(Orthogonal Frequency Division Multiple Access), which intuitively
-combines frequency-division multiplexing (carving the frequency band
-into multiple overlapping sub-channels) and time-division multiplexing
-(allocating one or more sub-channels to a given UE for a certain slot
-of time). OFDMA also uses a coding scheme known as LDPC (Low Density
-Parity Check) that ensures the probability of inter-symbol
-interference for transmissions on adjacent sub-channels is zero.
-Another way of thinking about LDPC is that the way it encodes bits
-onto signals includes enough redundancy (i.e., a form of FEC) to
-ensure the receiver is able recover the original data even when
-signals overlap. In addition, BBUs also have the ability to
-increase/decrease the power they use to transmit, effectively allowing
-them to dynamically change cell size. This makes it possible to move
-UEs from one cell to another on the fly.
+The main innovation of LTE's air interface is how it allocates the
+available radio spectrum to UEs. Unlike Wi-Fi, which is
+contention-based, LTE uses a reservation-based strategy. This
+difference is rooted in each system’s fundamental assumption about
+utilization: Wi-Fi assumes a lightly loaded network (and hence
+optimistically transmits when the wireless link is idle and backs off
+if contention is detected), while cellular networks assume (and strive
+for) high utilization (and hence explicitly assign different users to
+different “shares” of the available radio spectrum).
 
-Taken all together, this gives the RAN three degrees of freedom
-(frequency, time, power), which improves its ability to squeeze the
-most capacity out of the limited spectrum. More importantly, this
-flexibility provides opportunities for ISPs to offer new services to
-their subscribers, supporting applications that range from
-bandwidth-hungry video and virtual/augmented reality to
-latency-sensitive autonomous cars and Internet-of-Things. The
-challenge of 5G is how to control and best take advantage of this
-flexibility.
+The state-of-the-art media access mechanism for LTE is called
+*Orthogonal Frequency-Division Multiple Access (OFDMA)*. The
+idea is to multiplex data over a set of 12 orthogonal subcarrier
+frequencies, each of which is modulated independently. The “Multiple
+Access” in OFDMA implies that data can simultaneously be sent on
+behalf of multiple users, each on a different subcarrier frequency and
+for a different duration of time. The subbands are narrow (e.g.,
+15kHz), but the coding of user data into OFDMA symbols is designed to
+minimize the risk of data loss due to interference between adjacent
+bands.
+
+The use of OFDMA naturally leads to conceptualizing the radio spectrum
+as a two-dimensional resource, as shown in [Figure 3](#ofdma). The
+minimal schedulable unit, called a *Resource Element (RE)*,
+corresponds to a 15kHz-wide band around one subcarrier frequency and
+the time it takes to transmit one OFDMA symbol. The number of bits
+that can be encoded in each symbol depends on the modulation rate, so
+for example using Quadrature Amplitude Modulation (QAM), 16-QAM yields
+4 bits per symbol and 64-QAM yields 16 bits per symbol.
+
+<figure>
+	<a id="ofdma"></a>
+	<img src="figures/access/Slide4.png" width="800px"/>
+	<figcaption>The available radio spectrum abstractly represented by
+	a 2-D grid of schedulable Resource Elements.</figcaption>
+</figure>
+
+A scheduler makes allocation decisions at the granularity of blocks of
+7x12=84 resource elements, called a *Physical Resource Block
+(PRB)*. [Figure 3](#ofdma) shows two back-to-back PRBs, where
+UEs are depicted by different colored blocks. Of course time continues
+to flow along one axis, and depending on the size of the licensed
+frequency band, there may be many more subcarrier slots (and hence
+PRBs) available along the other axis, so the scheduler is essentially
+scheduling a sequence of PRBs for transmission.
+
+The 1ms *Transmission Time Interval (TTI)* shown in [Figure 3](#ofdma)
+corresponds to the time frame in which the BBU receives feedback from
+UEs about the quality of the signal they are experiencing. This
+feedback, called a *Channel Quality Indicator (CQI)*, essentially
+reports the observed signal-to-noise ratio, which impacts the UE’s
+ability to recover the data bits. The base station then uses this
+information to adapt how it allocates the available radio spectrum to
+the UEs it is serving.
+
+Up to this point, the description of how we schedule the radio spectrum
+is specific to 4G. The transition from 4G to 5G introduces additional
+degrees-of-freedom in how the radio spectrum is scheduled, making it
+possible to adapt the cellular network to a more diverse set of
+devices and applications domains.
+
+Fundamentally, 5G defines a family of waveforms—unlike 4G, which
+specified only one waveform—each optimized for a different band in the
+radio spectrum. The bands with carrier frequencies below 1GHz are
+designed to deliver mobile broadband and massive IoT services with a
+primary focus on range. Carrier frequencies between 1GHz-6GHz are
+designed to offer wider bandwidths, focusing on mobile broadband and
+mission-critical applications. Carrier frequencies above 24GHz
+(mmWaves) are designed to provide super wide bandwidths over short,
+line-of-sight coverage.
+
+> A waveform is the frequency, amplitude, and phase-shift independent
+>  property (shape) of a signal. A sine wave is an example waveform.
+
+These different waveforms affect the scheduling and subcarrier
+intervals (i.e., the “size” of the Resource Elements just described).
+
+* For sub-1GHz bands, 5G allows maximum 50MHz bandwidths. In this
+  case, there are two waveforms: one with subcarrier spacing of 15kHz
+  and another of 30kHz. (We used 15kHz in the example shown in
+  [Figure 3](#ofdma). The corresponding scheduling intervals are 0.5ms
+  and 0.25ms, respectively. (We used 0.5ms in the example shown in
+  [Figure 3](#ofdma).)
+
+* For 1GHz-6GHz bands, maximum bandwidths go up to
+  100MHz. Correspondingly, there are three waveforms with subcarrier
+  spacings of 15kHz, 30kHz and 60kHz, corresponding to scheduling
+  intervals of 0.5ms, 0.25ms and 0.125ms, respectively.
+
+* For millimeter bands, bandwidths may go up to 400MHz. There are two
+  waveforms, with subcarrier spacings of 60kHz and 120kHz. Both have
+  scheduling intervals of 0.125ms.
+  
+This range of options is important because it adds another degree of
+freedom to the scheduler. In addition to allocating resource blocks to
+users, it has the ability to dynamically adjust the size of the
+resource blocks by changing the wave form being used in the band it is
+responsible for scheduling.
+
+Whether 4G or 5G, the scheduling algorithm is a challenging
+optimization problem, with the objective of simultaneously (a)
+maximizing utilization of the available frequency band, and (b)
+ensuring that every UE receives the level of service it requires. This
+algorithm is not specified by 3GPP, but rather, is the proprietary
+intellectual property of the BBU vendors.
+
