@@ -234,11 +234,12 @@ The physical layer standard 802.11b was added subsequently. Using a
 variant of direct sequence, 802.11b provides up to 11 Mbps. These three
 standards all operated in the license-exempt 2.4-GHz frequency band of
 the electromagnetic spectrum. Then came 802.11a, which delivers up to
-54 Mbps using a variant of FDM called *orthogonal frequency division
-multiplexing (OFDM)*; 802.11a runs in the license-exempt 5-GHz band. On
-one hand, this band is less used, so there is less interference. On the
-other hand, there is more absorption of the signal and it is limited to
-almost line of sight. 802.11g followed; 802.11g also uses OFDM, delivers
+54 Mbps using a variant of frequency division multiplexing called
+*orthogonal frequency division multiplexing (OFDM)*; 802.11a runs in
+the license-exempt 5-GHz band. On one hand, this band is less used, so
+there is less interference. On the other hand, there is more
+absorption of the signal and it is limited to almost line of
+sight. 802.11g followed; 802.11g also uses OFDM, delivers
 up to 54 Mbps, and is backward compatible with 802.11b (and returns to
 the 2.4-GHz band).
 
@@ -248,7 +249,7 @@ rates of 150 Mbps to 450 Mbps, respectively. This improvement is
 partly due to the use of multiple antennas and allowing greater
 wireless channel bandwidths. The use of multiple antennas is often
 called *MIMO* for multiple-input, multiple-output. The latest emerging
-standard, 802.11ax promises another substantial improvement in
+standard, 802.11ax, promises another substantial improvement in
 throughput, in part by adopting many of the coding and modulation
 techniques used in the 4G/5G cellular network, which we describe in the
 next section.
