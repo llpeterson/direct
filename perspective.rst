@@ -83,11 +83,9 @@ through copper would have a wavelength of
 
 .. math::
 
-
    = 2/3 \times 3 \times 10^8 / 300
 
 .. math::
-
 
    = 667 \times 10^3\ meters
 
@@ -103,6 +101,18 @@ frequency bands.
    :align: center
    
    Electromagnetic spectrum.
+
+What :ref:`Figure 2 <fig-spectrum>` doesn't show is where the cellular
+network fits in. This is a bit complicated because the specific
+frequency bands that are licensed for cellular networks vary around
+the world, and even further complicated by the fact that network
+operators often simultaneously support both old/legacy technologies
+and new/next-generation technologies, each of which occupies a
+different frequency band. The high-level summary is that traditional
+cellular technologies range from 700-MHz to 2400-MHz, with new
+mid-spectrum allocations now happening at 6-GHz, and millimeter-wave
+(mmWave) allocations opening above 24-GHz. This mmWave band is likely
+to become an important part of the 5G mobile network.
 
 So far we understand a link to be a physical medium carrying signals in
 the form of electromagnetic waves. Such links provide the foundation for
