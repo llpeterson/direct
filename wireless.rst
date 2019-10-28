@@ -31,32 +31,32 @@ differences include which part of the electromagnetic spectrum they use
 consume. In this section, we discuss two prominent wireless
 technologies: Wi-Fi (more formally known as 802.11), and Bluetooth. The
 next section discusses cellular networks in the context of ISP access
-services. `Table 1 <tab-wireless-tech>` gives an overview of
+services. :ref:`Table 1 <tab-wireless-tech>` gives an overview of
 these technologies and how they compare to each other.
 
 .. _tab-wireless-tech:
 .. table:: Overview of Leading Wireless Technologies.
    :widths: auto
    :align: center
-
-+-------------+-----------------------+-----------------+--------------+
-|             | Bluetooth (802.15.1)  | Wi-Fi (802.11)  | 4G Cellular  |
-+=============+=======================+=================+==============+
-| Typical     | 10 m                  | 100 m           | Tens of      |
-| link length |                       |                 | kilometers   |
-+-------------+-----------------------+-----------------+--------------+
-| Typical     | 2 Mbps (shared)       | 54 Mbps         | 1-5 Mbps     |
-| data rate   |                       | (shared)        | (per         |
-|             |                       |                 | connection)  |
-+-------------+-----------------------+-----------------+--------------+
-| Typical use | Link a peripheral to  | Link a computer | Link mobile  |
-|             | a computer            | to a wired base | phone to a   |
-|             |                       |                 | wired tower  |
-+-------------+-----------------------+-----------------+--------------+
-| Wired       | USB                   | Ethernet        | PON          |
-| technology  |                       |                 |              |
-| analogy     |                       |                 |              |
-+-------------+-----------------------+-----------------+--------------+
+      
+   +-------------+-----------------------+-----------------+--------------+
+   |             | Bluetooth (802.15.1)  | Wi-Fi (802.11)  | 4G Cellular  |
+   +=============+=======================+=================+==============+
+   | Typical     | 10 m                  | 100 m           | Tens of      |
+   | link length |                       |                 | kilometers   |
+   +-------------+-----------------------+-----------------+--------------+
+   | Typical     | 2 Mbps (shared)       | 54 Mbps         | 1-5 Mbps     |
+   | data rate   |                       | (shared)        | (per         |
+   |             |                       |                 | connection)  |
+   +-------------+-----------------------+-----------------+--------------+
+   | Typical use | Link a peripheral to  | Link a computer | Link mobile  |
+   |             | a computer            | to a wired base | phone to a   |
+   |             |                       |                 | wired tower  |
+   +-------------+-----------------------+-----------------+--------------+
+   | Wired       | USB                   | Ethernet        | PON          |
+   | technology  |                       |                 |              |
+   | analogy     |                       |                 |              |
+   +-------------+-----------------------+-----------------+--------------+
 
 You may recall that bandwidth sometimes means the width of a frequency
 band in hertz and sometimes the data rate of a link. Because both these

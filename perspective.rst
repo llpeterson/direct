@@ -154,15 +154,15 @@ over recently deployed fiber.
    :widths: auto
    :align: center
 	   
-+-----------------+----------------+
-| Service         | Bandwidth      |
-+=================+================+
-| DSL (copper)    | up to 100 Mbps |
-+-----------------+----------------+
-| G.Fast (copper) | up to 1 Gbps   |
-+-----------------+----------------+
-| PON (optical)   | up to 10 Gbps  |
-+-----------------+----------------+
+   +-----------------+----------------+
+   | Service         | Bandwidth      |
+   +=================+================+
+   | DSL (copper)    | up to 100 Mbps |
+   +-----------------+----------------+
+   | G.Fast (copper) | up to 1 Gbps   |
+   +-----------------+----------------+
+   | PON (optical)   | up to 10 Gbps  |
+   +-----------------+----------------+
 
 And of course there is also the *mobile* or *cellular* network (also
 referred to as 4G, but which is rapidly evolving into 5G) that connects
