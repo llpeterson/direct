@@ -159,7 +159,9 @@ of the *last acknowledgment received*; and ``LFS`` denotes the sequence
 number of the *last frame sent*. The sender also maintains the following
 invariant:
 
-``LFS - LAR <= SWS``
+.. code-block:: c
+		
+   LFS - LAR <= SWS
 
 This situation is illustrated in :numref:`Figure %s <fig-sw-sender>`.
 
@@ -184,7 +186,9 @@ denotes the sequence number of the *largest acceptable frame*; and
 ``LFR`` denotes the sequence number of the *last frame received*. The
 receiver also maintains the following invariant:
 
-``LAF - LFR <= RWS``
+.. code-block:: c
+		
+   LAF - LFR <= RWS
 
 This situation is illustrated in :numref:`Figure %s <fig-sw-rcvr>`.
 
@@ -294,7 +298,9 @@ It turns out that the sending window size can be no more than half as
 big as the number of available sequence numbers when ``RWS = SWS``, or
 stated more precisely,
 
-``SWS < (MaxSeqNum + 1)/ 2``
+.. code-block:: c
+		
+   SWS < (MaxSeqNum + 1)/ 2
 
 Intuitively, what this is saying is that the sliding window protocol
 alternates between the two halves of the sequence number space, just as
