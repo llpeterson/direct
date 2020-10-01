@@ -283,7 +283,7 @@ distinct sequence numbers.
 Suppose we have one more number in our space of sequence numbers than we
 have potentially outstanding frames; that is, ``SWS <= MaxSeqNum - 1``,
 where ``MaxSeqNum`` is the number of available sequence numbers. Is this
-sufficient? The answer depends on ``RWS``. If ``RWS =  1``, then
+sufficient? The answer depends on ``RWS``. If ``RWS = 1``, then
 ``MaxSeqNum >= SWS + 1`` is sufficient. If ``RWS`` is equal to ``SWS``,
 then having a ``MaxSeqNum`` just one greater than the sending window
 size is not good enough. To see this, consider the situation in which we
