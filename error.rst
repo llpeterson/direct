@@ -324,7 +324,7 @@ unlikely for common types of errors.
 
 One common type of error is a single-bit error, which can be expressed
 as :math:`E(x) = x^i` when it affects bit position *i*. If we select 
-:math:`C(x)` such that thefirst and the last term (that is, the :math:`x^k` 
+:math:`C(x)` such that the first and the last term (that is, the :math:`x^k` 
 and :math:`x^0` terms) are nonzero, then we already have a two-term
 polynomial that
 cannot divide evenly into the one term :math:`E(x)`. Such a :math:`C(x)` can,

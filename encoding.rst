@@ -127,7 +127,7 @@ general, it is important to keep in mind we have over-simplified
 modulation, which is much more sophisticated than transmitting
 "high" and "low" signals. It is not uncommon to vary a combination
 of a signal's phase and amplitude, making it possible to encode
-16 or even 64 different patterns (often dalled *symbols*) during each
+16 or even 64 different patterns (often called *symbols*) during each
 clock interval. *QAM (Quadrature Amplitude Modulation)* is widely used
 example of such a modulation scheme.
 
